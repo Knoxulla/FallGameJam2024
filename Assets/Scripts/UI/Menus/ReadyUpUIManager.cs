@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,12 +16,18 @@ public class ReadyUpUIManager : MonoBehaviour
     [SerializeField] GameObject playerOneNotReady;
     [SerializeField] GameObject playerTwoNotReady;
     [SerializeField] GameObject readyUpPrompt;
+    private TMP_Text promptText;
 
     [SerializeField] Image loadingBar;
 
     private bool buttonPress = false;
     bool playerOneReady = false;
     bool playerTwoReady = false;
+
+    private void Awake()
+    {
+        promptText = readyUpPrompt.GetComponent<TMP_Text>();
+    }
 
     private void Update()
     {
@@ -31,9 +38,9 @@ public class ReadyUpUIManager : MonoBehaviour
             playerTwoReady = false;
         }
 
-        playerOne.isOn = playerOneReady;
+        //playerOne.isOn = playerOneReady;
         //playerTwoReady = playerTwo.isOn; // to debug without having another player, uncomment line underneath and comment out this line for proper form
-        playerTwo.isOn = playerTwoReady;
+        //playerTwo.isOn = playerTwoReady;
             
     }
 
@@ -50,6 +57,7 @@ public class ReadyUpUIManager : MonoBehaviour
             playerTwoReady = true;
         }
         CheckPlayerReady();
+        TurnOffNotReady();
     }
 
     public void PlayerLeft()
@@ -66,7 +74,7 @@ public class ReadyUpUIManager : MonoBehaviour
         }
 
         SetPlayerNotReady();
-        readyUpPrompt.SetActive(true);
+        ChangePrompt("Ready Up");
     }
 
     public void CheckPlayerReady()
@@ -74,13 +82,26 @@ public class ReadyUpUIManager : MonoBehaviour
         if (playerOne.isOn && playerTwo.isOn)
         {
             readyUpPrompt.SetActive(false);
+            ChangePrompt("Press Any Button to Begin");
         }
+    }
+
+    public void ChangePrompt(string prompt) 
+    {
+        promptText.text = prompt;
+        readyUpPrompt.SetActive(true);
     }
 
     public void AllowLevelStart()
     {
+        playerOneReady = playerOne.isOn;
+        playerTwoReady = playerTwo.isOn;
+
+        
+
         InputSystem.onAnyButtonPress.CallOnce(currentAction =>
         {
+            
             buttonPress = true;
             if (currentAction is ButtonControl button && buttonPress)
             {
@@ -125,7 +146,8 @@ public class ReadyUpUIManager : MonoBehaviour
         {
             playerTwoNotReady.SetActive(true);
         }
-        if (!playerTwo.isOn && !playerOne.isOn)
+
+        if (!playerTwo.isOn || !playerOne.isOn)
         {
             readyUpPrompt.SetActive(true);
         }
