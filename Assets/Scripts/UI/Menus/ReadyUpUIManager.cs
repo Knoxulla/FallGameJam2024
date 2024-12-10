@@ -16,6 +16,8 @@ public class ReadyUpUIManager : MonoBehaviour
     [SerializeField] GameObject playerTwoNotReady;
     [SerializeField] GameObject readyUpPrompt;
 
+    [SerializeField] Image loadingBar;
+
     private bool buttonPress = false;
     bool playerOneReady = false;
     bool playerTwoReady = false;
@@ -25,12 +27,13 @@ public class ReadyUpUIManager : MonoBehaviour
         if (playerOneReady && playerTwoReady)
         {
             AllowLevelStart();
-
+            playerOneReady = false;
+            playerTwoReady = false;
         }
 
         playerOne.isOn = playerOneReady;
-        playerTwoReady = playerTwo.isOn; // to debug without having another player, uncomment line underneath and comment out this line for proper form
-        //playerTwo.isOn = playerTwoReady;
+        //playerTwoReady = playerTwo.isOn; // to debug without having another player, uncomment line underneath and comment out this line for proper form
+        playerTwo.isOn = playerTwoReady;
             
     }
 
@@ -62,6 +65,7 @@ public class ReadyUpUIManager : MonoBehaviour
             playerOneReady = false;
         }
 
+        SetPlayerNotReady();
         readyUpPrompt.SetActive(true);
     }
 
@@ -85,8 +89,7 @@ public class ReadyUpUIManager : MonoBehaviour
                 //Debug.Log($"Key {currentAction.name} pressed! (text: {currentAction.displayName})");
 
                 buttonPress = false;
-                playerOneReady = false;
-                playerTwoReady= false;
+                
             }
         });
     }
@@ -96,30 +99,29 @@ public class ReadyUpUIManager : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    Image loadingBar;
+    
 
 
     IEnumerator LoadSceneAsync(string scene)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
 
-
-
         while (!operation.isDone)
         {
             float progressiveValue = Mathf.Clamp01(operation.progress / 0.9f);
             loadingBar.fillAmount = progressiveValue;
         }
+        yield return null;
     }
 
     #region Display Player Not Ready
     public void SetPlayerNotReady()
     {
-        if (!playerOne.isOn)
+        if (!playerOneReady)
         {
             playerOneNotReady.SetActive(true);
         }
-        if (!playerTwo.isOn)
+        if (!playerTwoReady)
         {
             playerTwoNotReady.SetActive(true);
         }
