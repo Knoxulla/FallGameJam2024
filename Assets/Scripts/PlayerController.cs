@@ -31,10 +31,6 @@ public class PlayerController : MonoBehaviour
     private int facingDirection = 1;
 
     private AllInputs controls;
-    private Vector2 moveInput;
-
-    // Player Identity Handling
-    private static PlayerController controller;
 
     private void Awake()
     {
@@ -43,8 +39,6 @@ public class PlayerController : MonoBehaviour
         controls = new AllInputs();
         GetPlayerNumber();
     }
-
-
 
     private void OnEnable()
     {
@@ -64,7 +58,6 @@ public class PlayerController : MonoBehaviour
 
     public int GetPlayerNumber()
     {
- 
         return playerIndex;
     }
 
