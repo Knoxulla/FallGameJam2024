@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "2f1dfec9-c6b9-49e1-8072-bf236d643dc3",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "825d3fe9-08a7-453e-b273-e0c45e91c46d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -49,7 +58,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "Gamepad;PlayerTwo;DefaultPlayer",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -71,40 +80,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "up",
-                    "id": "8180e8bd-4097-4f4e-ab88-4523101a6ce9",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "320bffee-a40b-4347-ac70-c210eb8bc73a",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "1c5327b5-f71c-4f60-99c7-4e737386f1d1",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;PlayerOne;DefaultPlayer",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -115,18 +91,18 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;PlayerOne;DefaultPlayer",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "2e46982e-44cc-431b-9f0b-c11910bf467a",
-                    "path": "<Keyboard>/leftArrow",
+                    "name": "down",
+                    "id": "320bffee-a40b-4347-ac70-c210eb8bc73a",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;PlayerOne;DefaultPlayer",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -137,7 +113,40 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;PlayerOne;DefaultPlayer",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "8180e8bd-4097-4f4e-ab88-4523101a6ce9",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;PlayerTwo;DefaultPlayer",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "2e46982e-44cc-431b-9f0b-c11910bf467a",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;PlayerTwo;DefaultPlayer",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "1c5327b5-f71c-4f60-99c7-4e737386f1d1",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;PlayerTwo;DefaultPlayer",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -148,7 +157,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": "Keyboard&Mouse;PlayerTwo;DefaultPlayer",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -159,18 +168,18 @@
                     "path": "<XRController>/{Primary2DAxis}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "XR",
+                    "groups": "XR;PlayerOne;DefaultPlayer",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "3ea4d645-4504-4529-b061-ab81934c3752",
+                    "id": "9677c993-b89c-48e2-b8ed-45c1a1a177aa",
                     "path": "<Joystick>/stick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Joystick",
+                    "groups": "Joystick;PlayerTwo;DefaultPlayer",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -181,7 +190,7 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
+                    "groups": "Gamepad;PlayerOne;PlayerTwo;DefaultPlayer",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -192,63 +201,8 @@
                     "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
+                    "groups": "Keyboard&Mouse;Touch;PlayerOne;PlayerTwo",
                     "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e5f5442-8668-4b27-a940-df99bad7e831",
-                    "path": "<Joystick>/{Hatswitch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "886e731e-7071-4ae4-95c0-e61739dad6fd",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ee3d0cd2-254e-47a7-a8cb-bc94d9658c54",
-                    "path": "<Joystick>/trigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -258,7 +212,18 @@
                     "path": "<XRController>/{PrimaryAction}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "XR",
+                    "groups": "XR;PlayerOne;DefaultPlayer",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c35e52e-e9ce-42d6-a8f9-7970c541e682",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerOne;Keyboard&Mouse;DefaultPlayer",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -282,6 +247,105 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchActionMap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2160ed4-114d-4cfe-a784-fadc8e53128a",
+                    "path": "<XRController>/{PrimaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerTwo;XR;DefaultPlayer",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f054642-049b-41b2-bdd6-aa75314da4c3",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerTwo;Gamepad;DefaultPlayer",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e5f5442-8668-4b27-a940-df99bad7e831",
+                    "path": "<Joystick>/{Hatswitch}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick;PlayerTwo;DefaultPlayer",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1051908-8c25-4531-b8ef-4840c8dee171",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerOne",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f3104e2-b608-4dca-bac2-686fe39b92d4",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerTwo;Gamepad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d7dea6d-7c1b-4753-a244-fe8810b2798f",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;PlayerTwo",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "472e6b07-6ca8-4dad-a10c-ddeb512e18ab",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;DefaultPlayer;PlayerOne",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ecd3078-c8e4-420c-88d7-822f5cfba14e",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;PlayerTwo;DefaultPlayer",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95b9c828-484c-4a1c-92c4-b7547ec8cf99",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerTwo;Gamepad;DefaultPlayer",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -914,7 +978,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button4",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "MenuBtn1",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -925,7 +989,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "MenuBtn2",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -936,7 +1000,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "MenuBtn3",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -947,7 +1011,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/trigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "MenuBtn4",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -958,7 +1022,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button12",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "P1Btn1",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -969,7 +1033,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button10",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "P1Btn2",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -980,7 +1044,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button8",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "P1Btn3",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -991,7 +1055,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button11",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "P1Btn4",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1002,7 +1066,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button9",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "P1Btn5",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1013,7 +1077,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button7",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "P1Btn6",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1024,7 +1088,7 @@
                     "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/stick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PlayerOne",
                     "action": "P1JoyStick",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1092,6 +1156,21 @@
                     "isOR": false
                 }
             ]
+        },
+        {
+            "name": "PlayerOne",
+            "bindingGroup": "PlayerOne",
+            "devices": []
+        },
+        {
+            "name": "PlayerTwo",
+            "bindingGroup": "PlayerTwo",
+            "devices": []
+        },
+        {
+            "name": "DefaultPlayer",
+            "bindingGroup": "DefaultPlayer",
+            "devices": []
         }
     ]
 }

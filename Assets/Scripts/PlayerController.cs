@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour, WASDPlayerControls.IPlayerActions
+public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
     public bool isPlayerOne = true;
+    public int playerIndex;
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
@@ -17,7 +19,9 @@ public class PlayerController : MonoBehaviour, WASDPlayerControls.IPlayerActions
     [Header("Gun Settings")]
     public bool hasGun = true;
     public int maxAmmo = 3;
-    private int currentAmmo;
+    [SerializeField] private int currentAmmo;
+    [SerializeField] private float shootingCooldown = 1f;
+    private bool onCooldown = false;
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletSpeed = 10f;
@@ -26,29 +30,25 @@ public class PlayerController : MonoBehaviour, WASDPlayerControls.IPlayerActions
     private bool isGrounded;
     private int facingDirection = 1;
 
-    private WASDPlayerControls controls;
+    private AllInputs controls;
     private Vector2 moveInput;
+
+    // Player Identity Handling
+    private static PlayerController controller;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         currentAmmo = maxAmmo;
-        controls = new WASDPlayerControls();
+        controls = new AllInputs();
+        GetPlayerNumber();
     }
+
+
 
     private void OnEnable()
     {
-        controls.Player.SetCallbacks(this);
-        controls.Player.Enable();
-
-        if (isPlayerOne)
-        {
-            controls.asset.bindingMask = InputBinding.MaskByGroup("SchemeWASD");
-        }
-        else
-        {
-            controls.asset.bindingMask = InputBinding.MaskByGroup("SchemeArrow");
-        }
+        // moved to SetPlayerBindings()
     }
 
     private void OnDisable()
@@ -58,24 +58,34 @@ public class PlayerController : MonoBehaviour, WASDPlayerControls.IPlayerActions
 
     private void Update()
     {
-        float moveX = moveInput.x;
-        rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
-
-        if (moveX > 0)
-        {
-            facingDirection = 1;
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (moveX < 0)
-        {
-            facingDirection = -1;
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
-    private void Jump()
+
+    public int GetPlayerNumber()
+    {
+ 
+        return playerIndex;
+    }
+
+    //public void SetPlayerBindings()
+    //{
+    //    controls.Player.SetCallbacks(this);
+    //    controls.Player.Enable();
+
+    //    if (isPlayerOne)
+    //    {
+    //        controls.asset.bindingMask = InputBinding.MaskByGroup("PlayerOne");
+    //        gameObject.GetComponent<PlayerInput>().defaultControlScheme = "PlayerOne";
+    //    }
+    //    else
+    //    {
+    //        controls.asset.bindingMask = InputBinding.MaskByGroup("PlayerTwo");
+    //        gameObject.GetComponent<PlayerInput>().defaultControlScheme = "PlayerTwo";
+    //    }
+    //}
+
+    public void OnJump()
     {
         if (isGrounded)
         {
@@ -83,11 +93,13 @@ public class PlayerController : MonoBehaviour, WASDPlayerControls.IPlayerActions
         }
     }
 
-    private void Shoot()
+    public void OnFire()
     {
-        if (hasGun && currentAmmo > 0)
+        if (hasGun && currentAmmo > 0 && !onCooldown)
         {
-            currentAmmo--;
+            currentAmmo -= 1;
+            onCooldown = true;
+            StartCoroutine(ShootingCooldown());
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, 90f));
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
@@ -103,6 +115,12 @@ public class PlayerController : MonoBehaviour, WASDPlayerControls.IPlayerActions
                 bulletScript.ownerTag = isPlayerOne ? "Player1" : "Player2";
             }
         }
+    }
+
+    IEnumerator ShootingCooldown() 
+    {
+        yield return new WaitForSeconds(shootingCooldown);
+        onCooldown = false;
     }
 
     public void AddAmmo(int amount)
@@ -123,24 +141,34 @@ public class PlayerController : MonoBehaviour, WASDPlayerControls.IPlayerActions
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(Vector2 moveInput)
     {
-        moveInput = context.ReadValue<Vector2>();
-    }
+        
+        rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
 
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if (context.performed)
+        if (moveInput.x > 0)
         {
-            Jump();
+            facingDirection = 1;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (moveInput.x < 0)
+        {
+            facingDirection = -1;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
-    public void OnShoot(InputAction.CallbackContext context)
+    #region Unused Controls from Action Map
+
+    public void OnLook(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            Shoot();
-        }
+        //throw new System.NotImplementedException();
     }
+
+    public void OnSwitchActionMap(InputAction.CallbackContext context)
+    {
+        //throw new System.NotImplementedException();
+    }
+    #endregion
+
 }
