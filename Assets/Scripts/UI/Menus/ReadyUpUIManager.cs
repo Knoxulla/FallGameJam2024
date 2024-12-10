@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -16,10 +17,21 @@ public class ReadyUpUIManager : MonoBehaviour
     [SerializeField] GameObject readyUpPrompt;
 
     private bool buttonPress = false;
+    bool playerOneReady = false;
+    bool playerTwoReady = false;
 
     private void Update()
     {
-        CheckPlayerReady();
+        if (playerOneReady && playerTwoReady)
+        {
+            AllowLevelStart();
+
+        }
+
+        playerOne.isOn = playerOneReady;
+        playerTwoReady = playerTwo.isOn; // to debug without having another player, uncomment line underneath and comment out this line for proper form
+        //playerTwo.isOn = playerTwoReady;
+            
     }
 
     public void PlayerJoined() 
@@ -27,11 +39,14 @@ public class ReadyUpUIManager : MonoBehaviour
         if (!playerOne.isOn)
         {
             playerOne.isOn = true;
+            playerOneReady = true;
         }
         else
         {
             playerTwo.isOn = true;
+            playerTwoReady = true;
         }
+        CheckPlayerReady();
     }
 
     public void PlayerLeft()
@@ -39,22 +54,22 @@ public class ReadyUpUIManager : MonoBehaviour
         if (playerTwo.isOn)
         {
             playerTwo.isOn = false;
+            playerTwoReady = false;
         }
         else
         {
             playerOne.isOn = false;
+            playerOneReady = false;
         }
 
         readyUpPrompt.SetActive(true);
     }
-
 
     public void CheckPlayerReady()
     {
         if (playerOne.isOn && playerTwo.isOn)
         {
             readyUpPrompt.SetActive(false);
-            AllowLevelStart();
         }
     }
 
@@ -65,13 +80,36 @@ public class ReadyUpUIManager : MonoBehaviour
             buttonPress = true;
             if (currentAction is ButtonControl button && buttonPress)
             {
-                SceneManager.LoadSceneAsync("GameScene");
+                LoadGameScene();
                 //ONLY USE THIS DEBUG FOR TROUBLESHOOTING, CAUSES BIG LAG.
                 //Debug.Log($"Key {currentAction.name} pressed! (text: {currentAction.displayName})");
 
                 buttonPress = false;
+                playerOneReady = false;
+                playerTwoReady= false;
             }
         });
+    }
+
+    public void LoadGameScene() 
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    Image loadingBar;
+
+
+    IEnumerator LoadSceneAsync(string scene)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
+
+
+
+        while (!operation.isDone)
+        {
+            float progressiveValue = Mathf.Clamp01(operation.progress / 0.9f);
+            loadingBar.fillAmount = progressiveValue;
+        }
     }
 
     #region Display Player Not Ready
@@ -96,13 +134,13 @@ public class ReadyUpUIManager : MonoBehaviour
         if (playerOne.isOn)
         {
             playerOneNotReady.SetActive(false);
-            readyUpPrompt.SetActive(false);
+            
 
         }
         if (playerTwo.isOn)
         {
             playerTwoNotReady.SetActive(false);
-            readyUpPrompt.SetActive(false);
+           
         }
     }
     #endregion
