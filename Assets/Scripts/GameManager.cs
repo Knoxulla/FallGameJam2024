@@ -51,21 +51,26 @@ public class GameManager : MonoBehaviour
         player2StartPosition = GameObject.FindGameObjectWithTag("Player2Spawn").GetComponent<Transform>().position;
     }
 
-    //sets player sprites and animators
-    private void SetPlayerVisuals()
+    //sets player sprites and animator controllers at runtime based on player controller index
+    private void SetVisualsByPlayerID(PlayerController player)
     {
-        if (player1 != null)
-        {
-            GameObject player1Obj = player1.gameObject;
-            player1Obj.AddComponent<SpriteRenderer>();
+        GameObject playerObj = player.gameObject;
+        SpriteRenderer playerRenderer = playerObj.AddComponent<SpriteRenderer>();
+        Animator playerAnimator = playerObj.AddComponent<Animator>();
+
+        if (player.playerIndex == 0)
+        { 
+            playerRenderer.sprite = player1SO.playerSprite;
+            playerAnimator.runtimeAnimatorController = player1SO.animatorController;
         }
 
-        if (player2 != null) 
+        if (player.playerIndex == 1)
         {
-            GameObject player2Obj = player2.gameObject;
-            player2Obj.AddComponent<SpriteRenderer>();
+            playerRenderer.sprite = player2SO.playerSprite;
+            playerAnimator.runtimeAnimatorController = player2SO.animatorController;
         }
     }
+
 
     public void RegisterPlayer(PlayerController newPlayer)
     {
@@ -211,12 +216,14 @@ public class GameManager : MonoBehaviour
             {
                 player1.transform.position = player1StartPosition;
                 Debug.Log($"Player1 position set to {player1StartPosition}");
+                SetVisualsByPlayerID(player1);
             }
 
             if (player2 != null)
             {
                 player2.transform.position = player2StartPosition;
                 Debug.Log($"Player2 position set to {player2StartPosition}");
+                SetVisualsByPlayerID(player2);
             }
         }
         else

@@ -777,6 +777,8 @@ MonoBehaviour:
   player2: {fileID: 0}
   player1StartPosition: {x: -6, y: -3, z: 0}
   player2StartPosition: {x: -3, y: -3, z: 0}
+  player1SO: {fileID: 11400000, guid: 71a39e73dcdaae44ca24183baaf5fb2d, type: 2}
+  player2SO: {fileID: 11400000, guid: 10a0b36d74278fa438333616e1ba5fbd, type: 2}
 --- !u!4 &2017056342
 Transform:
   m_ObjectHideFlags: 0

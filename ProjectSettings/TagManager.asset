@@ -8,6 +8,8 @@ TagManager:
   - Player1
   - Player2
   - Ladder
+  - Player1Spawn
+  - Player2Spawn
   layers:
   - Default
   - TransparentFX
