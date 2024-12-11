@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,14 +10,41 @@ public class GameManager : MonoBehaviour
     public PlayerController player1;
     public PlayerController player2;
 
+
     [Header("UI Manager")]
     public UIManager uiManager;
 
     private bool gameEnded = false;
 
+    private bool playersRegistered = false;
+
+    public void RegisterPlayer(PlayerController newPlayer)
+    {
+        if (player1 == null)
+        {
+            player1 = newPlayer;
+            Debug.Log("Player 1 registered.");
+        }
+        else if (player2 == null)
+        {
+            player2 = newPlayer;
+            Debug.Log("Player 2 registered.");
+        }
+        else
+        {
+            Debug.LogError("Cannot register more than two players!");
+        }
+
+        if (player1 != null && player2 != null)
+        {
+            playersRegistered = true;
+            Debug.Log("Both players registered. Game is now active.");
+        }
+    }
+
     private void Update()
     {
-        if (!gameEnded)
+        if (!gameEnded && playersRegistered)
         {
             CheckGameOverCondition();
         }
@@ -53,6 +82,8 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(string result)
     {
+        if (gameEnded) return;
+
         gameEnded = true;
 
         Debug.Log("Game Over: " + result);
@@ -66,12 +97,21 @@ public class GameManager : MonoBehaviour
             Debug.LogError("UIManager is not assigned!");
         }
 
-        Time.timeScale = 0f;
-    }
-    public void RestartGame()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(PauseGameAfterFrame());
     }
 
+    IEnumerator PauseGameAfterFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        Time.timeScale = 0f;
+    }
+
+    public void RestartGame()
+    {
+        Debug.Log("RestartGame button clicked.");
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Game restarted.");
+    }
 }

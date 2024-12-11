@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
     float timeOfDeath;
     public float deathHold;
     public float invulnerableTime;
-    bool isInvulnerable = false;
+    //bool isInvulnerable = false;
  
 
     // Start is called before the first frame update
@@ -102,7 +102,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Respawn()
     {
-        isInvulnerable = false;
+        //isInvulnerable = false;
         myPC.enabled = true;
         myCol.enabled = true;
         currentHealth = maxHealth;

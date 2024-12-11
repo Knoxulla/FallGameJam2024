@@ -319,7 +319,7 @@ MonoBehaviour:
     m_ActionId: 4e06bfa1-e254-41bb-b44f-3510a75e82b6
     m_ActionName: ArcadeControls/P1JoyStick
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: PlayerOne
+  m_DefaultControlScheme: DefaultPlayer
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -335,8 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263e2c607d4921a449f71ae25d0b2aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOne: 0
-  playerIndex: 1
+  playerIndex: 0
+  health: 1
   moveSpeed: 5
   jumpForce: 7
   groundLayer:
@@ -344,6 +344,7 @@ MonoBehaviour:
     m_Bits: 256
   groundCheck: {fileID: 3659403382582873634}
   groundCheckRadius: 0.2
+  climbSpeed: 3
   hasGun: 1
   maxAmmo: 3
   currentAmmo: 3

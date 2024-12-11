@@ -38,26 +38,26 @@ public class PlayerController : MonoBehaviour
     private int facingDirection = 1;
     private Vector2 moveInput;
 
-    private AllInputs controls;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         currentAmmo = maxAmmo;
         originalGravityScale = rb.gravityScale;
-        controls = new AllInputs();
-        GetPlayerNumber();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        // moved to SetPlayerBindings()
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            gameManager.RegisterPlayer(this);
+        }
+        else
+        {
+            Debug.LogError("GameManager not found in the scene.");
+        }
     }
 
-    private void OnDisable()
-    {
-        controls.Player.Disable();
-    }
 
     private void Update()
     {
@@ -84,11 +84,6 @@ public class PlayerController : MonoBehaviour
                 rb.gravityScale = originalGravityScale;
             }
         }
-    }
-
-    public int GetPlayerNumber()
-    {
-        return playerIndex;
     }
 
     public void OnJump()
@@ -161,6 +156,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnFire()
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            Debug.LogWarning("Attempted to fire while player is inactive.");
+            return;
+        }
+
         if (hasGun && currentAmmo > 0 && !onCooldown)
         {
             currentAmmo -= 1;
@@ -198,14 +199,13 @@ public class PlayerController : MonoBehaviour
     {
         if (attackerTag == "Player" + (playerIndex + 1))
         {
-            // 防止自伤
             return;
         }
 
         Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
-        Destroy(gameObject); // 示例逻辑：玩家被击中后销毁
-    }
+        Destroy(gameObject);
 
+    }
 
     #region Unused Controls from Action Map
 

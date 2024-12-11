@@ -1,87 +1,57 @@
-using System;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInputHandler : MonoBehaviour, AllInputs.IPlayerActions
 {
     private PlayerInput playerInput;
     private PlayerController playerController;
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        var playerControls = FindObjectsOfType<PlayerController>();
-        var index = playerInput.playerIndex;
-        playerController = playerControls.FirstOrDefault(m => m.GetPlayerNumber() == index);
-    }
 
-    private void Start()
-    {
-        if (playerInput != null)
+        playerController = GetComponent<PlayerController>();
+        if (playerController != null)
         {
-
-            if (playerInput.playerIndex == 0)
-            {
-                playerInput.SwitchCurrentControlScheme("PlayerOne", Keyboard.current, Mouse.current);
-            }
-            else if (playerInput.playerIndex == 1)
-            {
-                playerInput.SwitchCurrentControlScheme("PlayerTwo", Keyboard.current, Mouse.current);
-            }
-
+            playerController.playerIndex = playerInput.playerIndex;
+        }
+        else
+        {
+            Debug.LogError("PlayerController not found on this PlayerInput object.");
         }
     }
 
-    public bool PlayerNullCheck()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        if (playerController != null) return true;
-        else return false;
+        if (playerController != null)
+        {
+            playerController.OnMove(context.ReadValue<Vector2>());
+        }
     }
 
-    public void OnFire(CallbackContext context)
+    public void OnJump(InputAction.CallbackContext context)
     {
-        if (!PlayerNullCheck())
+        if (playerController != null)
         {
-            return;
+            playerController.OnJump();
         }
-        playerController.OnFire();
     }
 
-    public void OnJump(CallbackContext context)
+    public void OnFire(InputAction.CallbackContext context)
     {
-        if (!PlayerNullCheck())
+        if (playerController != null)
         {
-            return;
+            playerController.OnFire();
         }
-        playerController.OnJump();
     }
 
-    public void OnMove(CallbackContext context)
+    public void OnSwitchActionMap(InputAction.CallbackContext context)
     {
-        if (!PlayerNullCheck())
-        {
-            return;
-        }
-
-        playerController.OnMove(context.ReadValue<Vector2>());
+        // 空实现
     }
 
-    public void OnSwitchActionMap(CallbackContext context)
+    public void OnLook(InputAction.CallbackContext context)
     {
-        if (!PlayerNullCheck())
-        {
-            return;
-        }
-
-    }
-
-    public void OnLook(CallbackContext context)
-    {
-        if (!PlayerNullCheck())
-        {
-            return;
-        }
-
+        // 空实现
     }
 }
