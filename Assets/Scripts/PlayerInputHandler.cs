@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,23 @@ public class PlayerInputHandler : MonoBehaviour, AllInputs.IPlayerActions
         var playerControls = FindObjectsOfType<PlayerController>();
         var index = playerInput.playerIndex;
         playerController = playerControls.FirstOrDefault(m => m.GetPlayerNumber() == index);
+    }
+
+    private void Start()
+    {
+        if (playerInput != null)
+        {
+
+            if (playerInput.playerIndex == 0)
+            {
+                playerInput.SwitchCurrentControlScheme("PlayerOne", Keyboard.current, Mouse.current);
+            }
+            else if (playerInput.playerIndex == 1)
+            {
+                playerInput.SwitchCurrentControlScheme("PlayerTwo", Keyboard.current, Mouse.current);
+            }
+
+        }
     }
 
     public bool PlayerNullCheck()
