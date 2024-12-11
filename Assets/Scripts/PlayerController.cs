@@ -6,8 +6,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
-    public bool isPlayerOne = true;
     public int playerIndex;
+    public int health = 1;
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
@@ -15,6 +15,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
+
+    [Header("Climbing Settings")]
+    public float climbSpeed = 3f;
+    private bool canClimb = false;
+    private bool isClimbing = false;
+    private Collider2D ladderCollider;
+    private float originalGravityScale;
 
     [Header("Gun Settings")]
     public bool hasGun = true;
@@ -29,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private int facingDirection = 1;
+    private Vector2 moveInput;
 
     private AllInputs controls;
 
@@ -36,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currentAmmo = maxAmmo;
+        originalGravityScale = rb.gravityScale;
         controls = new AllInputs();
         GetPlayerNumber();
     }
@@ -53,38 +62,102 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        HandleClimbing();
     }
 
+    private void HandleClimbing()
+    {
+        if (isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * climbSpeed);
+
+            if (!canClimb)
+            {
+                ExitClimbingMode();
+            }
+        }
+        else
+        {
+            if (rb.gravityScale == 0f)
+            {
+                rb.gravityScale = originalGravityScale;
+            }
+        }
+    }
 
     public int GetPlayerNumber()
     {
         return playerIndex;
     }
 
-    //public void SetPlayerBindings()
-    //{
-    //    controls.Player.SetCallbacks(this);
-    //    controls.Player.Enable();
-
-    //    if (isPlayerOne)
-    //    {
-    //        controls.asset.bindingMask = InputBinding.MaskByGroup("PlayerOne");
-    //        gameObject.GetComponent<PlayerInput>().defaultControlScheme = "PlayerOne";
-    //    }
-    //    else
-    //    {
-    //        controls.asset.bindingMask = InputBinding.MaskByGroup("PlayerTwo");
-    //        gameObject.GetComponent<PlayerInput>().defaultControlScheme = "PlayerTwo";
-    //    }
-    //}
-
     public void OnJump()
     {
-        if (isGrounded)
+        if (!isClimbing && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
+
+    public void OnMove(Vector2 moveInput)
+    {
+        this.moveInput = moveInput;
+
+        if (canClimb && moveInput.y != 0)
+        {
+            EnterClimbingMode();
+        }
+        else if (!isClimbing)
+        {
+            rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
+
+            if (moveInput.x > 0)
+            {
+                facingDirection = 1;
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (moveInput.x < 0)
+            {
+                facingDirection = -1;
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
+    }
+
+    private void EnterClimbingMode()
+    {
+        isClimbing = true;
+        rb.gravityScale = 0f;
+    }
+
+    private void ExitClimbingMode()
+    {
+        isClimbing = false;
+        rb.gravityScale = originalGravityScale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            canClimb = true;
+            ladderCollider = other;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            canClimb = false;
+
+            if (isClimbing)
+            {
+                ExitClimbingMode();
+            }
+        }
+    }
+
 
     public void OnFire()
     {
@@ -105,12 +178,12 @@ public class PlayerController : MonoBehaviour
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             if (bulletScript != null)
             {
-                bulletScript.ownerTag = isPlayerOne ? "Player1" : "Player2";
+                bulletScript.ownerTag = "Player" + (playerIndex + 1);
             }
         }
     }
 
-    IEnumerator ShootingCooldown() 
+    IEnumerator ShootingCooldown()
     {
         yield return new WaitForSeconds(shootingCooldown);
         onCooldown = false;
@@ -121,35 +194,18 @@ public class PlayerController : MonoBehaviour
         currentAmmo = Mathf.Clamp(currentAmmo + amount, 0, maxAmmo);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string attackerTag)
     {
-        Debug.Log((isPlayerOne ? "Player1" : "Player2") + " is hit!");
-        if (isPlayerOne)
+        if (attackerTag == "Player" + (playerIndex + 1))
         {
-            Debug.Log("Player2 Wins!");
+            // 防止自伤
+            return;
         }
-        else
-        {
-            Debug.Log("Player1 Wins!");
-        }
+
+        Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
+        Destroy(gameObject); // 示例逻辑：玩家被击中后销毁
     }
 
-    public void OnMove(Vector2 moveInput)
-    {
-        
-        rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
-
-        if (moveInput.x > 0)
-        {
-            facingDirection = 1;
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (moveInput.x < 0)
-        {
-            facingDirection = -1;
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-    }
 
     #region Unused Controls from Action Map
 
