@@ -32,26 +32,26 @@ public class GameManager : MonoBehaviour
         if (!player1Alive && !player2Alive)
         {
             Debug.Log("Game ends in a tie!");
-            EndGame("Tie");
+            EndGame("Tie", 0);
         }
         else if (!player1Alive)
         {
             Debug.Log("Player 2 wins!");
-            EndGame("Player 2 Wins");
+            EndGame("Player 2 Wins", 2);
         }
         else if (!player2Alive)
         {
             Debug.Log("Player 1 wins!");
-            EndGame("Player 1 Wins");
+            EndGame("Player 1 Wins", 1);
         }
         else if (!player1HasAmmo && !player2HasAmmo)
         {
             Debug.Log("Game ends in a tie (no bullets)!");
-            EndGame("Tie (No Bullets)");
+            EndGame("Tie (No Bullets)", 3);
         }
     }
 
-    public void EndGame(string result)
+    public void EndGame(string result, int resultID)
     {
         gameEnded = true;
 
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         if (uiManager != null)
         {
-            uiManager.ShowEndGameScreen(result);
+            uiManager.ShowEndGameScreen(result, resultID);
         }
         else
         {
