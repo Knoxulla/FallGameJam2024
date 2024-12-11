@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private float originalGravityScale;
 
     [Header("Gun Settings")]
-    public bool hasGun = true;
+    public bool hasGun;
     public int maxAmmo = 3;
     [SerializeField] private int currentAmmo;
     [SerializeField] private float shootingCooldown = 1f;
@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         currentAmmo = maxAmmo;
         originalGravityScale = rb.gravityScale;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()

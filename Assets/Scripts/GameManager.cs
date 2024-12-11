@@ -6,17 +6,43 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
     [Header("Game Settings")]
     public PlayerController player1;
     public PlayerController player2;
 
+    [Header("Player Start Positions")]
+    public Vector3 player1StartPosition;
+    public Vector3 player2StartPosition;
 
-    [Header("UI Manager")]
-    public UIManager uiManager;
+    private UIManager uiManager;
 
     private bool gameEnded = false;
 
     private bool playersRegistered = false;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
 
     public void RegisterPlayer(PlayerController newPlayer)
     {
@@ -42,11 +68,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetUIManager(UIManager manager)
+    {
+        if (uiManager == null)
+        {
+            uiManager = manager;
+            Debug.Log("UIManager has been set in GameManager via SetUIManager.");
+        }
+        else
+        {
+            Debug.LogWarning("UIManager is already set in GameManager.");
+        }
+    }
+
+
     private void Update()
     {
         if (!gameEnded && playersRegistered)
         {
-            CheckGameOverCondition();
+            if (player1.hasGun && player2.hasGun)
+            {
+                CheckGameOverCondition();
+            }
         }
     }
 
@@ -84,6 +127,12 @@ public class GameManager : MonoBehaviour
     {
         if (gameEnded) return;
 
+        if (SceneManager.GetActiveScene().name != "GameScene")
+        {
+            Debug.LogWarning("Attempted to end game outside of GameScene. Ignored.");
+            return;
+        }
+
         gameEnded = true;
 
         Debug.Log("Game Over: " + result);
@@ -91,6 +140,7 @@ public class GameManager : MonoBehaviour
         if (uiManager != null)
         {
             uiManager.ShowEndGameScreen(result, resultID);
+            Debug.Log("End game screen shown.");
         }
         else
         {
@@ -113,5 +163,41 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("Game restarted.");
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "GameScene")
+        {
+            if (uiManager == null)
+            {
+                uiManager = FindObjectOfType<UIManager>();
+                if (uiManager == null)
+                {
+                    Debug.LogError("UIManager not found in GameScene!");
+                }
+                else
+                {
+                    Debug.Log("UIManager successfully found in GameScene via fallback.");
+                }
+            }
+
+            if (player1 != null)
+            {
+                player1.transform.position = player1StartPosition;
+                Debug.Log($"Player1 position set to {player1StartPosition}");
+            }
+
+            if (player2 != null)
+            {
+                player2.transform.position = player2StartPosition;
+                Debug.Log($"Player2 position set to {player2StartPosition}");
+            }
+        }
+        else
+        {
+            uiManager = null;
+            Debug.Log($"Scene {scene.name} loaded. UIManager is set to null.");
+        }
     }
 }
