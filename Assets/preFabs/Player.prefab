@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8459373911832829306}
   - component: {fileID: 3143204196769283632}
   - component: {fileID: 5224319791842050864}
+  - component: {fileID: 4194933639366768656}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player1
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.13437414, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,8 +180,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5224319791842050864}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 4194933639366768656}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -199,8 +200,8 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5224319791842050864}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 4194933639366768656}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
         m_MethodName: OnFire
         m_Mode: 0
         m_Arguments:
@@ -219,8 +220,8 @@ MonoBehaviour:
     m_ActionName: Player/SwitchActionMap[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5224319791842050864}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 4194933639366768656}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -334,7 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263e2c607d4921a449f71ae25d0b2aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerOne: 1
+  isPlayerOne: 0
+  playerIndex: 1
   moveSpeed: 5
   jumpForce: 7
   groundLayer:
@@ -349,6 +351,18 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8857569359933634673, guid: 15af935779e20304da89d0f4284465a6, type: 3}
   firePoint: {fileID: 1467372557635855977}
   bulletSpeed: 10
+--- !u!114 &4194933639366768656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521056647395095101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8688ac1415faf324886c68a1d4831458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1273070031479537264
 GameObject:
   m_ObjectHideFlags: 0

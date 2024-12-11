@@ -21,20 +21,12 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
         {
-            if (collision.gameObject.CompareTag(ownerTag))
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            if (player != null)
             {
-                return;
+                player.TakeDamage(damage, ownerTag);
             }
-            else
-            {
-                PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-                if (player != null)
-                {
-                    player.TakeDamage(damage);
-                    Debug.Log((player.isPlayerOne ? "Player1" : "Player2") + " got hit by " + ownerTag);
-                }
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
         else
         {
