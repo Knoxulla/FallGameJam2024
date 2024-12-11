@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     private int facingDirection = 1;
     private Vector2 moveInput;
 
+    bool isFlipped = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -111,11 +113,13 @@ public class PlayerController : MonoBehaviour
             {
                 facingDirection = 1;
                 transform.localScale = new Vector3(1, 1, 1);
+                isFlipped = false;
             }
             else if (moveInput.x < 0)
             {
                 facingDirection = -1;
                 transform.localScale = new Vector3(-1, 1, 1);
+                isFlipped = true;
             }
         }
     }
@@ -167,9 +171,20 @@ public class PlayerController : MonoBehaviour
         {
             currentAmmo -= 1;
             onCooldown = true;
+           
+
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, 0f));
+            if (isFlipped)
+            {
+                bullet.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                bullet.GetComponent<SpriteRenderer>().flipX = false;
+            }
+
             StartCoroutine(ShootingCooldown());
 
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, 90f));
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
 
             if (bulletRb != null)

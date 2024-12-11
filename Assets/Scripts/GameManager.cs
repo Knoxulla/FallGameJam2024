@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     private bool playersRegistered = false;
 
+    public PlayerSO player1SO;
+    public PlayerSO player2SO;
 
     private void Awake()
     {
@@ -43,6 +45,27 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    private void InitializePlayerPositions()
+    {
+        player1StartPosition = GameObject.FindGameObjectWithTag("Player1Spawn").GetComponent<Transform>().position;
+        player2StartPosition = GameObject.FindGameObjectWithTag("Player2Spawn").GetComponent<Transform>().position;
+    }
+
+    //sets player sprites and animators
+    private void SetPlayerVisuals()
+    {
+        if (player1 != null)
+        {
+            GameObject player1Obj = player1.gameObject;
+            player1Obj.AddComponent<SpriteRenderer>();
+        }
+
+        if (player2 != null) 
+        {
+            GameObject player2Obj = player2.gameObject;
+            player2Obj.AddComponent<SpriteRenderer>();
+        }
+    }
 
     public void RegisterPlayer(PlayerController newPlayer)
     {
@@ -169,6 +192,8 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "GameScene")
         {
+            InitializePlayerPositions(); // sets player spawn positions
+
             if (uiManager == null)
             {
                 uiManager = FindObjectOfType<UIManager>();
