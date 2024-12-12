@@ -13,12 +13,12 @@ public class BarrelMovement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(moveDirection * speed * Time.deltaTime);
+        transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("DestructionZone")) 
+        if (other.CompareTag("DestructionZone"))
         {
             Destroy(gameObject);
         }
