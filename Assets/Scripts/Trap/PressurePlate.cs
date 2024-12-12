@@ -13,8 +13,11 @@ public class PressurePlate : MonoBehaviour
     {
         if (isOnCooldown) return;
 
-        TriggerTraps();
-        StartCoroutine(Cooldown());
+        if (other.CompareTag("Player"))
+        {
+            TriggerTraps();
+            StartCoroutine(Cooldown());
+        }
     }
 
     private void TriggerTraps()

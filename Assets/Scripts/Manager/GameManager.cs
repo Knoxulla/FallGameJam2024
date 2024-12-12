@@ -163,6 +163,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HandlePlayerDeath(int playerIndex)
+    {
+        if (playerIndex == 0)
+        {
+            Debug.Log("Player 1 has died.");
+            player1 = null;
+            EndGame("Player 2 Wins", 2);
+        }
+        else if (playerIndex == 1)
+        {
+            Debug.Log("Player 2 has died.");
+            player2 = null;
+            EndGame("Player 1 Wins", 1);
+        }
+        else
+        {
+            Debug.LogError($"Invalid playerIndex: {playerIndex}");
+        }
+    }
+
     public void EndGame(string result, int resultID)
     {
         if (gameEnded) return;

@@ -8,6 +8,7 @@ public class TeslaCoilTrapController : TrapBase
     public float activationInterval = 2f;
     public float activeDuration = 1f;
     public int maxActivations = 5;
+    public float activationDelay = 0f;
 
     private int activationCount = 0;
     private Coroutine activationCoroutine;
@@ -23,7 +24,18 @@ public class TeslaCoilTrapController : TrapBase
         if (currentState == TrapState.Active) return;
 
         SetState(TrapState.Active);
-        activationCoroutine = StartCoroutine(ActivateTeslaCoilPeriodically());
+        activationCoroutine = StartCoroutine(StartWithDelay());
+    }
+
+    private IEnumerator StartWithDelay()
+    {
+        if (activationDelay > 0)
+        {
+            Debug.Log($"Tesla Coil will activate after a delay of {activationDelay} seconds.");
+            yield return new WaitForSeconds(activationDelay);
+        }
+
+        yield return StartCoroutine(ActivateTeslaCoilPeriodically());
     }
 
     private IEnumerator ActivateTeslaCoilPeriodically()

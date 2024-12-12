@@ -4,10 +4,21 @@ public class Spike : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player1"))
+        PlayerController playerController = other.GetComponent<PlayerController>();
+        if (playerController != null)
         {
-            GameManager.Instance.HandlePlayerDeath(other.gameObject.name);
-            Debug.Log($"{other.name} hit by Spike");
+            if (playerController.playerIndex == 0)
+            {
+                GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
+                Debug.Log("Player 1 hit by Spike");
+                Destroy(gameObject);
+            }
+            else if (playerController.playerIndex == 1)
+            {
+                GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
+                Debug.Log("Player 2 hit by Spike");
+                Destroy(gameObject);
+            }
         }
     }
 }

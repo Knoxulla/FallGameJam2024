@@ -13,7 +13,7 @@ public class TeslaCoil : MonoBehaviour
             animator = GetComponent<Animator>();
             if (animator == null)
             {
-                Debug.LogError($"{gameObject.name} 缺少 Animator 组件！");
+                Debug.LogError($"{gameObject.name} Need Animator Component!");
             }
         }
 
@@ -22,7 +22,7 @@ public class TeslaCoil : MonoBehaviour
             killCollider = GetComponent<Collider2D>();
             if (killCollider == null)
             {
-                Debug.LogError($"{gameObject.name} 缺少 Collider2D 组件！");
+                Debug.LogError($"{gameObject.name} Need Animator Component!");
             }
         }
 
@@ -57,10 +57,21 @@ public class TeslaCoil : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player1"))
+        PlayerController playerController = other.GetComponent<PlayerController>();
+        if (playerController != null)
         {
-            GameManager.Instance.HandlePlayerDeath(other.gameObject.name);
-            Debug.Log($"{other.name} hit by TeslaCoil");
+            if (playerController.playerIndex == 0)
+            {
+                GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
+                Debug.Log("Player 1 hit by Tesla Coil");
+                Destroy(gameObject);
+            }
+            else if (playerController.playerIndex == 1)
+            {
+                GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
+                Debug.Log("Player 2 hit by Tesla Coil");
+                Destroy(gameObject);
+            }
         }
     }
 }

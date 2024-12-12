@@ -28,7 +28,7 @@ public class Spring : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (isReady && other.CompareTag("Player1"))
+        if (isReady && other.CompareTag("Player"))
         {
             Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
             if (playerRb != null)

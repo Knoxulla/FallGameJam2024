@@ -4,7 +4,12 @@ public class GasParticleCollision : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        GameManager.Instance.HandlePlayerDeath("Player2");
-        Debug.Log("Particle collided with " + other.name);
+        PlayerController playerController = other.GetComponent<PlayerController>();
+        if (playerController != null)
+        {
+            GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
+            Debug.Log($"Particle collided with Player {playerController.playerIndex}");
+            Destroy(gameObject);
+        }
     }
 }

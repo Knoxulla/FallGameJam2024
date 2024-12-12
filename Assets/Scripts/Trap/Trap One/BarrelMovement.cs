@@ -22,10 +22,22 @@ public class BarrelMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.CompareTag("Player1"))
+
+        PlayerController playerController = other.GetComponent<PlayerController>();
+        if (playerController != null)
         {
-            GameManager.Instance.HandlePlayerDeath("Player2");
-            Debug.Log("Player1 hit by barrel");
+            if (playerController.playerIndex == 0)
+            {
+                GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
+                Debug.Log("Player 1 hit by barrel");
+                Destroy(gameObject);
+            }
+            else if (playerController.playerIndex == 1)
+            {
+                GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
+                Debug.Log("Player 2 hit by barrel");
+                Destroy(gameObject);
+            }
         }
     }
 }

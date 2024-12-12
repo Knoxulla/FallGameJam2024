@@ -178,7 +178,6 @@ public class PlayerController : MonoBehaviour
         {
             currentAmmo -= 1;
             onCooldown = true;
-           
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, 0f));
             if (isFlipped)
@@ -190,6 +189,12 @@ public class PlayerController : MonoBehaviour
                 bullet.GetComponent<SpriteRenderer>().flipX = false;
             }
 
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.ownerPlayerIndex = playerIndex;
+            }
+
             StartCoroutine(ShootingCooldown());
 
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
@@ -197,12 +202,6 @@ public class PlayerController : MonoBehaviour
             if (bulletRb != null)
             {
                 bulletRb.velocity = new Vector2(facingDirection * bulletSpeed, 0);
-            }
-
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            if (bulletScript != null)
-            {
-                bulletScript.ownerTag = "Player" + (playerIndex + 1);
             }
         }
     }
@@ -218,17 +217,18 @@ public class PlayerController : MonoBehaviour
         currentAmmo = Mathf.Clamp(currentAmmo + amount, 0, maxAmmo);
     }
 
-    public void TakeDamage(int damage, string attackerTag)
+    public void TakeDamage(int damage, string attackerIndex)
     {
-        if (attackerTag == "Player" + (playerIndex + 1))
+        int attackerPlayerIndex = int.Parse(attackerIndex);
+        if (attackerPlayerIndex == playerIndex)
         {
             return;
         }
 
-        Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
+        Debug.Log("Player " + playerIndex + " is hit by Player " + attackerPlayerIndex);
         Destroy(gameObject);
-
     }
+
 
     #region Unused Controls from Action Map
 

@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float lifeTime = 5f;
     public int damage = 1;
-    public string ownerTag;
+    public int ownerPlayerIndex;
 
     private float timer = 0f;
 
@@ -19,18 +19,16 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
         {
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-            if (player != null)
+            if (player.playerIndex != ownerPlayerIndex)
             {
-                player.TakeDamage(damage, ownerTag);
+                player.TakeDamage(damage, ownerPlayerIndex.ToString());
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }
