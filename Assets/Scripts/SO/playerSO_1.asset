@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: playerSO_1
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 530343434, guid: e33f6a6676ef3894bade4148ddd70edf, type: 3}
-  animatorController: {fileID: 9100000, guid: 33aa42308efe638469bf46a85d98308f, type: 2}
+  animatorController: {fileID: 9100000, guid: cfa50dc74e633814b99632232e3956ce, type: 2}
