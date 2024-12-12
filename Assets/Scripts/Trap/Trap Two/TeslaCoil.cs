@@ -13,7 +13,7 @@ public class TeslaCoil : MonoBehaviour
             animator = GetComponent<Animator>();
             if (animator == null)
             {
-                Debug.LogError($"{gameObject.name} Need Animator Component!");
+                //Debug.LogError($"{gameObject.name} Need Animator Component!");
             }
         }
 
@@ -22,7 +22,7 @@ public class TeslaCoil : MonoBehaviour
             killCollider = GetComponent<Collider2D>();
             if (killCollider == null)
             {
-                Debug.LogError($"{gameObject.name} Need Animator Component!");
+                //Debug.LogError($"{gameObject.name} Need Animator Component!");
             }
         }
 

@@ -20,6 +20,6 @@ public abstract class TrapBase : MonoBehaviour
     protected virtual void SetState(TrapState newState)
     {
         currentState = newState;
-        Debug.Log($"{gameObject.name} state is switched to: {newState}");
+        //Debug.Log($"{gameObject.name} state is switched to: {newState}");
     }
 }

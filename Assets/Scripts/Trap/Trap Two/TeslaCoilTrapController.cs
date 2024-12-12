@@ -31,7 +31,7 @@ public class TeslaCoilTrapController : TrapBase
     {
         if (activationDelay > 0)
         {
-            Debug.Log($"Tesla Coil will activate after a delay of {activationDelay} seconds.");
+            //Debug.Log($"Tesla Coil will activate after a delay of {activationDelay} seconds.");
             yield return new WaitForSeconds(activationDelay);
         }
 
@@ -44,11 +44,11 @@ public class TeslaCoilTrapController : TrapBase
         {
             ActivateTeslaCoil();
             activationCount++;
-            Debug.Log($"Tesla Coil activation count: {activationCount}/{maxActivations}");
+            //Debug.Log($"Tesla Coil activation count: {activationCount}/{maxActivations}");
 
             if (activationCount >= maxActivations)
             {
-                Debug.Log("Tesla Coil reached maximum activations.");
+                //Debug.Log("Tesla Coil reached maximum activations.");
                 SetState(TrapState.Inactive);
                 yield break;
             }
@@ -67,7 +67,7 @@ public class TeslaCoilTrapController : TrapBase
             teslaScript.StartElectricity(activeDuration);
         }
 
-        Debug.Log("Tesla Coil activated.");
+        //Debug.Log("Tesla Coil activated.");
     }
 
     protected override void SetState(TrapState newState)
@@ -76,7 +76,7 @@ public class TeslaCoilTrapController : TrapBase
         if (newState == TrapState.Inactive)
         {
             activationCount = 0;
-            Debug.Log("Tesla Coil activation count has been reset.");
+            //Debug.Log("Tesla Coil activation count has been reset.");
         }
     }
 

@@ -110,8 +110,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isClimbing && isGrounded)
         {
-            animator.SetTrigger(JUMP);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            animator.SetTrigger(JUMP);
         }
     }
 
@@ -135,7 +135,6 @@ public class PlayerController : MonoBehaviour
                 {
                     isMoving = true;
                 }
-                animator.SetBool(PLAYERX, isMoving);
 
                 if (moveInput.x > 0)
                 {
@@ -153,6 +152,8 @@ public class PlayerController : MonoBehaviour
                     transform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 }
                 isFlipped = true;
+
+                animator.SetBool(PLAYERX, isMoving);
             }
         }
     }
@@ -161,16 +162,16 @@ public class PlayerController : MonoBehaviour
     private void EnterClimbingMode()
     {
         isClimbing = true;
-        animator.SetBool(ISCLIMBING, isClimbing);
         rb.gravityScale = 0f;
+        animator.SetBool(ISCLIMBING, isClimbing);
 
     }
 
     private void ExitClimbingMode()
     {
         isClimbing = false;
-        animator.SetBool(ISCLIMBING, isClimbing);
         rb.gravityScale = originalGravityScale;
+        animator.SetBool(ISCLIMBING, isClimbing);
     }
 
     public void EnableGun()
@@ -214,7 +215,6 @@ public class PlayerController : MonoBehaviour
         {
             currentAmmo -= 1;
             onCooldown = true;
-            animator.SetTrigger(SHOOT);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, 0f));
             if (isFlipped)
@@ -226,6 +226,12 @@ public class PlayerController : MonoBehaviour
                 bullet.GetComponent<SpriteRenderer>().flipX = false;
             }
 
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.ownerPlayerIndex = playerIndex;
+            }
+
             StartCoroutine(ShootingCooldown());
 
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
@@ -234,14 +240,9 @@ public class PlayerController : MonoBehaviour
             {
                 bulletRb.velocity = new Vector2(facingDirection * bulletSpeed, 0);
             }
-
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            if (bulletScript != null)
-            {
-                bulletScript.ownerTag = "Player" + (playerIndex + 1);
-            }
         }
     }
+
 
     IEnumerator ShootingCooldown()
     {

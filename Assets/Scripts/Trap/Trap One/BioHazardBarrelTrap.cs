@@ -47,7 +47,7 @@ public class BioHazardBarrelTrap : TrapBase
         if (barrelAnimator != null)
         {
             barrelAnimator.SetBool("IsActive", true);
-            Debug.Log("Barrel animation activated immediately.");
+            //Debug.Log("Barrel animation activated immediately.");
         }
     }
 }

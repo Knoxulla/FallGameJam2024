@@ -14,7 +14,7 @@ public class Spring : MonoBehaviour
             animator = GetComponent<Animator>();
             if (animator == null)
             {
-                Debug.LogError($"{gameObject.name} Need Animator Component!");
+                //Debug.LogError($"{gameObject.name} Need Animator Component!");
             }
         }
 
@@ -34,7 +34,7 @@ public class Spring : MonoBehaviour
             if (playerRb != null)
             {
                 playerRb.velocity = new Vector2(playerRb.velocity.x, springForce);
-                Debug.Log($"{other.name} is sprung by the spring, applying the force: {springForce}");
+                //Debug.Log($"{other.name} is sprung by the spring, applying the force: {springForce}");
 
                 if (animator != null)
                 {

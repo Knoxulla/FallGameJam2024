@@ -89,22 +89,22 @@ public class GameManager : MonoBehaviour
         if (player1 == null)
         {
             player1 = newPlayer;
-            Debug.Log("Player 1 registered.");
+            //Debug.Log("Player 1 registered.");
         }
         else if (player2 == null)
         {
             player2 = newPlayer;
-            Debug.Log("Player 2 registered.");
+            //Debug.Log("Player 2 registered.");
         }
         else
         {
-            Debug.LogError("Cannot register more than two players!");
+            //Debug.LogError("Cannot register more than two players!");
         }
 
         if (player1 != null && player2 != null)
         {
             playersRegistered = true;
-            Debug.Log("Both players registered. Game is now active.");
+            //Debug.Log("Both players registered. Game is now active.");
         }
     }
 
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         if (uiManager == null)
         {
             uiManager = manager;
-            Debug.Log("UIManager has been set in GameManager via SetUIManager.");
+            //Debug.Log("UIManager has been set in GameManager via SetUIManager.");
         }
         else
         {
@@ -143,22 +143,22 @@ public class GameManager : MonoBehaviour
 
         if (!player1Alive && !player2Alive)
         {
-            Debug.Log("Game ends in a tie!");
+            //Debug.Log("Game ends in a tie!");
             EndGame("Tie", 0);
         }
         else if (!player1Alive)
         {
-            Debug.Log("Player 2 wins!");
+            //Debug.Log("Player 2 wins!");
             EndGame("Player 2 Wins", 2);
         }
         else if (!player2Alive)
         {
-            Debug.Log("Player 1 wins!");
+            //Debug.Log("Player 1 wins!");
             EndGame("Player 1 Wins", 1);
         }
         else if (!player1HasAmmo && !player2HasAmmo)
         {
-            Debug.Log("Game ends in a tie (no bullets)!");
+            //Debug.Log("Game ends in a tie (no bullets)!");
             EndGame("Tie (No Bullets)", 3);
         }
     }
@@ -167,13 +167,13 @@ public class GameManager : MonoBehaviour
     {
         if (playerIndex == 0)
         {
-            Debug.Log("Player 1 has died.");
+            //Debug.Log("Player 1 has died.");
             player1 = null;
             EndGame("Player 2 Wins", 2);
         }
         else if (playerIndex == 1)
         {
-            Debug.Log("Player 2 has died.");
+            //Debug.Log("Player 2 has died.");
             player2 = null;
             EndGame("Player 1 Wins", 1);
         }
@@ -195,12 +195,12 @@ public class GameManager : MonoBehaviour
 
         gameEnded = true;
 
-        Debug.Log("Game Over: " + result);
+        //Debug.Log("Game Over: " + result);
 
         if (uiManager != null)
         {
             uiManager.ShowEndGameScreen(result, resultID);
-            Debug.Log("End game screen shown.");
+            //Debug.Log("End game screen shown.");
         }
         else
         {
@@ -218,11 +218,11 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        Debug.Log("RestartGame button clicked.");
+        //Debug.Log("RestartGame button clicked.");
         Time.timeScale = 1f;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("Game restarted.");
+        //Debug.Log("Game restarted.");
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -242,7 +242,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("UIManager successfully found in GameScene via fallback.");
+                    //Debug.Log("UIManager successfully found in GameScene via fallback.");
                 }
             }
 
@@ -263,7 +263,13 @@ public class GameManager : MonoBehaviour
         else
         {
             uiManager = null;
-            Debug.Log($"Scene {scene.name} loaded. UIManager is set to null.");
+            //Debug.Log($"Scene {scene.name} loaded. UIManager is set to null.");
         }
+    }
+
+    public void GivePlayersGun()
+    {
+        player1.hasGun = true;
+        player2.hasGun = true;
     }
 }

@@ -44,7 +44,7 @@ public class SpringTrapController : TrapBase
         if (spring != null)
         {
             Destroy(spring);
-            Debug.Log("Spring Trap has expired and been destroyed.");
+            //Debug.Log("Spring Trap has expired and been destroyed.");
         }
 
         SetState(TrapState.Inactive);

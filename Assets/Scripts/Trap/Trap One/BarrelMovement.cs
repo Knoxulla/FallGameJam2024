@@ -29,13 +29,13 @@ public class BarrelMovement : MonoBehaviour
             if (playerController.playerIndex == 0)
             {
                 GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
-                Debug.Log("Player 1 hit by barrel");
+                //Debug.Log("Player 1 hit by barrel");
                 Destroy(gameObject);
             }
             else if (playerController.playerIndex == 1)
             {
                 GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
-                Debug.Log("Player 2 hit by barrel");
+                //Debug.Log("Player 2 hit by barrel");
                 Destroy(gameObject);
             }
         }

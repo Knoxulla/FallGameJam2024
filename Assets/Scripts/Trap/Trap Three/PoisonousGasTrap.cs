@@ -28,7 +28,7 @@ public class PoisonousGasTrap : TrapBase
 
     private IEnumerator EmitGas()
     {
-        Debug.Log("Gas emitted");
+        //Debug.Log("Gas emitted");
         if (gasParticleSystem != null)
         {
             gasParticleSystem.gameObject.SetActive(true);
@@ -55,7 +55,7 @@ public class PoisonousGasTrap : TrapBase
             }
         }
 
-        Debug.Log("Gas stopped");
+        //Debug.Log("Gas stopped");
 
         SetState(TrapState.Inactive);
     }
