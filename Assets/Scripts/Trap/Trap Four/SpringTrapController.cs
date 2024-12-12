@@ -1,14 +1,9 @@
 using UnityEngine;
-using System.Collections;
 
 public class SpringTrapController : TrapBase
 {
-    public GameObject springPrefab;
-    public Transform spawnPoint;
-    public float springForce = 10f;
-    public float existenceDuration = 3f;
-
-    private Coroutine existenceCoroutine;
+    [Header("Scene Springs")]
+    public Spring[] springs;
 
     protected override void Awake()
     {
@@ -21,41 +16,27 @@ public class SpringTrapController : TrapBase
         if (currentState == TrapState.Active) return;
 
         SetState(TrapState.Active);
-        SpawnSpring();
+        ActivateSprings();
     }
 
-    private void SpawnSpring()
+    private void ActivateSprings()
     {
-        GameObject spring = Instantiate(springPrefab, spawnPoint.position, Quaternion.identity);
-        Spring springScript = spring.GetComponent<Spring>();
-
-        if (springScript != null)
+        foreach (Spring spring in springs)
         {
-            springScript.SetSpringForce(springForce);
+            spring.Activate();
         }
 
-        existenceCoroutine = StartCoroutine(SpringExistenceRoutine(spring));
-    }
-
-    private IEnumerator SpringExistenceRoutine(GameObject spring)
-    {
-        yield return new WaitForSeconds(existenceDuration);
-
-        if (spring != null)
-        {
-            Destroy(spring);
-            //Debug.Log("Spring Trap has expired and been destroyed.");
-        }
-
-        SetState(TrapState.Inactive);
+        Debug.Log("Spring Trap activated. Springs are now active.");
     }
 
     private void OnDisable()
     {
         SetState(TrapState.Inactive);
-        if (existenceCoroutine != null)
+        
+        foreach (Spring spring in springs)
         {
-            StopCoroutine(existenceCoroutine);
+            spring.Deactivate();
         }
+        
     }
 }
