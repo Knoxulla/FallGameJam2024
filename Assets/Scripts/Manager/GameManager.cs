@@ -151,6 +151,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HandlePlayerDeath(string playerTag)
+    {
+        Debug.Log($"{playerTag} has died.");
+        EndGame("Player 1 Wins", 1);
+    }
+
     public void EndGame(string result, int resultID)
     {
         if (gameEnded) return;
@@ -197,7 +203,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "GameScene")
         {
-            InitializePlayerPositions(); // sets player spawn positions
+            InitializePlayerPositions();
 
             if (uiManager == null)
             {

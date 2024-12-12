@@ -1677,7 +1677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162192604}
   m_Layer: 0
-  m_Name: Player Sapwn in Ready-up Scene
+  m_Name: Player Pre-Spawn Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3123,6 +3123,6 @@ SceneRoots:
   - {fileID: 664796600}
   - {fileID: 931460654}
   - {fileID: 1779937346}
+  - {fileID: 1162192604}
   - {fileID: 21832632}
   - {fileID: 1680903402}
-  - {fileID: 1162192604}
