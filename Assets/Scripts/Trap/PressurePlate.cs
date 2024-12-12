@@ -15,6 +15,7 @@ public class PressurePlate : MonoBehaviour
     private void Start()
     {
         button = gameObject.GetComponent<SpriteRenderer>();
+        button.color = Color.green;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
