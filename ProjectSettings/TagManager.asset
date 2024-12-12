@@ -11,6 +11,7 @@ TagManager:
   - Player1Spawn
   - Player2Spawn
   - DestructionZone
+  - Door
   layers:
   - Default
   - TransparentFX

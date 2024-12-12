@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e33f6a6676ef3894bade4148ddd70edf
+guid: 2f52415c5baec684fbe1c5cd158aac4b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 11, y: 0, z: 12, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -97,43 +97,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlaceholderCharacters_0
+      name: Main_Platforms_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 99
-        width: 80
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c7b9640268714149a690cec7776b335
-      internalID: 1228990125
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlaceholderCharacters_1
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 12
         y: 0
-        width: 104
-        height: 67
+        width: 276
+        height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd28d2b23c1068b458a821c11cd2a99f
-      internalID: 530343434
+      spriteID: 5256fbd8f3cfeae49b65af196d80925d
+      internalID: 37966117
       vertices: []
       indices: 
       edges: []
@@ -142,15 +121,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlaceholderCharacters_0: 1228990125
-      PlaceholderCharacters_1: 530343434
+      Main_Platforms_0: 37966117
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
