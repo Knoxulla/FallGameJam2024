@@ -9,6 +9,14 @@ public class PressurePlate : MonoBehaviour
 
     private bool isOnCooldown = false;
 
+
+    SpriteRenderer button;
+
+    private void Start()
+    {
+        button = gameObject.GetComponent<SpriteRenderer>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isOnCooldown) return;
@@ -18,6 +26,8 @@ public class PressurePlate : MonoBehaviour
             TriggerTraps();
             StartCoroutine(Cooldown());
         }
+
+        
     }
 
     private void TriggerTraps()
@@ -26,6 +36,8 @@ public class PressurePlate : MonoBehaviour
         {
             trap.TriggerTrap();
         }
+        //change sprite colour to red to show its on cooldown
+        button.color = Color.red;
     }
 
     private IEnumerator Cooldown()
@@ -33,5 +45,8 @@ public class PressurePlate : MonoBehaviour
         isOnCooldown = true;
         yield return new WaitForSeconds(cooldownTime);
         isOnCooldown = false;
+
+        //change sprite colour to red to show its off cooldown
+        button.color = Color.green;
     }
 }
