@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -112,13 +113,19 @@ public class PlayerController : MonoBehaviour
             if (moveInput.x > 0)
             {
                 facingDirection = 1;
-                transform.localScale = new Vector3(1, 1, 1);
-                isFlipped = false;
+                if (SceneManager.GetActiveScene().name == "GameScene")
+                {
+                    transform.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                    isFlipped = false;
+                }
             }
             else if (moveInput.x < 0)
             {
                 facingDirection = -1;
-                transform.localScale = new Vector3(-1, 1, 1);
+                if (SceneManager.GetActiveScene().name == "GameScene")
+                {
+                    transform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                }
                 isFlipped = true;
             }
         }
