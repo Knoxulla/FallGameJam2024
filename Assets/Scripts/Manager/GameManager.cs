@@ -62,19 +62,19 @@ public class GameManager : MonoBehaviour
     private void SetVisualsByPlayerID(PlayerController player)
     {
         GameObject playerObj = player.gameObject;
-        SpriteRenderer playerRenderer = playerObj.AddComponent<SpriteRenderer>();
-        Animator playerAnimator = playerObj.AddComponent<Animator>();
+        //SpriteRenderer playerRenderer = playerObj.AddComponent<SpriteRenderer>();
+        //Animator playerAnimator = playerObj.AddComponent<Animator>();
 
         if (player.playerIndex == 0)
         { 
-            playerRenderer.sprite = player1SO.playerSprite;
-            playerAnimator.runtimeAnimatorController = player1SO.animatorController;
+            player.GetComponent<SpriteRenderer>().sprite = player1SO.playerSprite;
+            player.GetComponent<Animator>().runtimeAnimatorController = player1SO.animatorController;
         }
 
         if (player.playerIndex == 1)
         {
-            playerRenderer.sprite = player2SO.playerSprite;
-            playerAnimator.runtimeAnimatorController = player2SO.animatorController;
+            player.GetComponent<SpriteRenderer>().sprite = player2SO.playerSprite;
+            player.GetComponent<Animator>().runtimeAnimatorController = player2SO.animatorController;
         }
     }
 
@@ -163,6 +163,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HandlePlayerDeath(string playerTag)
+    {
+        Debug.Log($"{playerTag} has died.");
+        EndGame("Player 1 Wins", 1);
+    }
+
     public void EndGame(string result, int resultID)
     {
         if (gameEnded) return;
@@ -188,6 +194,12 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(PauseGameAfterFrame());
+    }
+
+    public void GivePlayersGun() 
+    {
+        player1.EnableGun();
+        player2.EnableGun();
     }
 
     IEnumerator PauseGameAfterFrame()
