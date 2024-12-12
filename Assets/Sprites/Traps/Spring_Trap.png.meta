@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e33f6a6676ef3894bade4148ddd70edf
+guid: 5f41697aa3e9c9a4da75bb21adb24719
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlaceholderCharacters_0
+      name: Spring_Trap_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 99
-        width: 80
-        height: 67
+        x: 39
+        y: 15
+        width: 336
+        height: 285
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c7b9640268714149a690cec7776b335
-      internalID: 1228990125
+      spriteID: 61b42af87e6fe0846b90547510792eb1
+      internalID: 1375088886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlaceholderCharacters_1
+      name: Spring_Trap_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 400
         y: 0
-        width: 104
-        height: 67
+        width: 337
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd28d2b23c1068b458a821c11cd2a99f
-      internalID: 530343434
+      spriteID: f90747a6d61648a41bc6485193d66ae3
+      internalID: 1806058450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spring_Trap_2
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 0
+        width: 336
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc4f5cea20c18246a6acf7b56d9a1a4
+      internalID: -461363361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spring_Trap_3
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 0
+        width: 335
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6faf8f09823c46f4fa0ff57ed4de861f
+      internalID: 1659133936
       vertices: []
       indices: 
       edges: []
@@ -149,8 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlaceholderCharacters_0: 1228990125
-      PlaceholderCharacters_1: 530343434
+      Spring_Trap_0: 1375088886
+      Spring_Trap_1: 1806058450
+      Spring_Trap_2: -461363361
+      Spring_Trap_3: 1659133936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
