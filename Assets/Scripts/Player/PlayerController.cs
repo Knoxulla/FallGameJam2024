@@ -39,7 +39,17 @@ public class PlayerController : MonoBehaviour
     private int facingDirection = 1;
     private Vector2 moveInput;
 
+
+    [Header("Visuals")]
     bool isFlipped = false;
+    Animator animator;
+
+    // animation strings
+    const string PLAYERX = "isMove";
+    const string HASGUN = "hasGun";
+    const string ISCLIMBING = "isClimbing";
+    const string SHOOT = "Shoot";
+    const string JUMP = "Jump";
 
     private void Awake()
     {
@@ -59,6 +69,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             Debug.LogError("GameManager not found in the scene.");
+        }
+
+        if (gameObject.GetComponent<Animator>())
+        {
+            animator = gameObject.GetComponent<Animator>();
         }
     }
 
@@ -80,6 +95,7 @@ public class PlayerController : MonoBehaviour
             {
                 ExitClimbingMode();
             }
+
         }
         else
         {
@@ -94,6 +110,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isClimbing && isGrounded)
         {
+            animator.SetTrigger(JUMP);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
@@ -101,29 +118,38 @@ public class PlayerController : MonoBehaviour
     public void OnMove(Vector2 moveInput)
     {
         this.moveInput = moveInput;
-
-        if (canClimb && moveInput.y != 0)
+        if (SceneManager.GetActiveScene().name == "GameScene")
         {
-            EnterClimbingMode();
-        }
-        else if (!isClimbing)
-        {
-            rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
 
-            if (moveInput.x > 0)
+            if (canClimb && moveInput.y != 0)
             {
-                facingDirection = 1;
-                if (SceneManager.GetActiveScene().name == "GameScene")
-                {
-                    transform.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-                    isFlipped = false;
-                }
+                EnterClimbingMode();
             }
-            else if (moveInput.x < 0)
+            else if (!isClimbing)
             {
-                facingDirection = -1;
-                if (SceneManager.GetActiveScene().name == "GameScene")
+                rb.velocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
+
+                bool isMoving = false;
+
+                if (moveInput.x > 0 || moveInput.x < 0)
                 {
+                    isMoving = true;
+                }
+                animator.SetBool(PLAYERX, isMoving);
+
+                if (moveInput.x > 0)
+                {
+                    facingDirection = 1;
+                    if (SceneManager.GetActiveScene().name == "GameScene")
+                    {
+                        transform.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                        isFlipped = false;
+                    }
+                }
+                else if (moveInput.x < 0)
+                {
+                    facingDirection = -1;
+
                     transform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 }
                 isFlipped = true;
@@ -131,16 +157,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void EnterClimbingMode()
     {
         isClimbing = true;
+        animator.SetBool(ISCLIMBING, isClimbing);
         rb.gravityScale = 0f;
+
     }
 
     private void ExitClimbingMode()
     {
         isClimbing = false;
+        animator.SetBool(ISCLIMBING, isClimbing);
         rb.gravityScale = originalGravityScale;
+    }
+
+    public void EnableGun()
+    { 
+        hasGun = true;
+        animator.SetBool(HASGUN, hasGun);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -178,6 +214,7 @@ public class PlayerController : MonoBehaviour
         {
             currentAmmo -= 1;
             onCooldown = true;
+            animator.SetTrigger(SHOOT);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, 0f));
             if (isFlipped)
@@ -189,12 +226,6 @@ public class PlayerController : MonoBehaviour
                 bullet.GetComponent<SpriteRenderer>().flipX = false;
             }
 
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            if (bulletScript != null)
-            {
-                bulletScript.ownerPlayerIndex = playerIndex;
-            }
-
             StartCoroutine(ShootingCooldown());
 
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
@@ -202,6 +233,12 @@ public class PlayerController : MonoBehaviour
             if (bulletRb != null)
             {
                 bulletRb.velocity = new Vector2(facingDirection * bulletSpeed, 0);
+            }
+
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.ownerTag = "Player" + (playerIndex + 1);
             }
         }
     }
@@ -217,18 +254,17 @@ public class PlayerController : MonoBehaviour
         currentAmmo = Mathf.Clamp(currentAmmo + amount, 0, maxAmmo);
     }
 
-    public void TakeDamage(int damage, string attackerIndex)
+    public void TakeDamage(int damage, string attackerTag)
     {
-        int attackerPlayerIndex = int.Parse(attackerIndex);
-        if (attackerPlayerIndex == playerIndex)
+        if (attackerTag == "Player" + (playerIndex + 1))
         {
             return;
         }
 
-        Debug.Log("Player " + playerIndex + " is hit by Player " + attackerPlayerIndex);
+        Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
         Destroy(gameObject);
-    }
 
+    }
 
     #region Unused Controls from Action Map
 
