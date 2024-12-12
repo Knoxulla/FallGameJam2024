@@ -21,6 +21,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void DisplayBulletCount() 
+    { 
+        // set bullet text and set active bullet display
+        // have animator on bullet display
+    }
+
+    //call this on shoot to update numbers on display, turn off and on the TMP gameobject and have an animator on it so the countdown is cool
+    public void UpdateBulletCount()
+    {
+        
+    }
+
     public void ShowEndGameScreen(string result, int resultID)
     {
         if (endGamePanel != null)
