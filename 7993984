@@ -1,0 +1,94 @@
+[33m7993984[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: checkout: moving from LevelDesign to main
+[33m6246631[m HEAD@{1}: commit (merge): merge
+[33m527865c[m HEAD@{2}: checkout: moving from main to LevelDesign
+[33m7993984[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{3}: commit: ficing stuff
+[33m40b6373[m HEAD@{4}: merge BuildBranch: Merge made by the 'ort' strategy.
+[33md8d97e0[m HEAD@{5}: checkout: moving from BuildBranch to main
+[33m581acc1[m[33m ([m[1;31morigin/BuildBranch[m[33m, [m[1;32mBuildBranch[m[33m)[m HEAD@{6}: commit: levels and ladders
+[33m527865c[m HEAD@{7}: checkout: moving from LevelDesign to BuildBranch
+[33m527865c[m HEAD@{8}: reset: moving to 527865c3e1fbbdc072d4d2a7b72aa640daa9b1cf
+[33mb9b9223[m HEAD@{9}: checkout: moving from BuildBranch to LevelDesign
+[33m527865c[m HEAD@{10}: reset: moving to HEAD
+[33m527865c[m HEAD@{11}: reset: moving to HEAD~
+[33mcc97baf[m HEAD@{12}: reset: moving to HEAD~1
+[33md8d97e0[m HEAD@{13}: checkout: moving from KnoxUI to BuildBranch
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{14}: checkout: moving from BuildBranch to KnoxUI
+[33md8d97e0[m HEAD@{15}: merge main: Fast-forward
+[33me8bd27f[m[33m ([m[1;31morigin/John.Z[m[33m, [m[1;32mJohn.Z[m[33m)[m HEAD@{16}: checkout: moving from LevelDesign to BuildBranch
+[33mb9b9223[m HEAD@{17}: commit: -
+[33me8bd27f[m[33m ([m[1;31morigin/John.Z[m[33m, [m[1;32mJohn.Z[m[33m)[m HEAD@{18}: reset: moving to e8bd27f1e5a8fa4489d08f927313e236b8f625b8
+[33me8bd27f[m[33m ([m[1;31morigin/John.Z[m[33m, [m[1;32mJohn.Z[m[33m)[m HEAD@{19}: checkout: moving from BuildBranch to LevelDesign
+[33me8bd27f[m[33m ([m[1;31morigin/John.Z[m[33m, [m[1;32mJohn.Z[m[33m)[m HEAD@{20}: checkout: moving from LevelDesign to BuildBranch
+[33me8bd27f[m[33m ([m[1;31morigin/John.Z[m[33m, [m[1;32mJohn.Z[m[33m)[m HEAD@{21}: checkout: moving from main to LevelDesign
+[33md8d97e0[m HEAD@{22}: checkout: moving from LevelDesign to main
+[33me8bd27f[m[33m ([m[1;31morigin/John.Z[m[33m, [m[1;32mJohn.Z[m[33m)[m HEAD@{23}: checkout: moving from main to LevelDesign
+[33md8d97e0[m HEAD@{24}: commit (cherry-pick): Revert "Merge branch 'LevelDesign' into John.Z"
+[33mcc97baf[m HEAD@{25}: revert: Revert "fixing some merge issues"
+[33m527865c[m HEAD@{26}: commit: fixing some merge issues
+[33m6d31ae1[m HEAD@{27}: checkout: moving from LevelDesign to main
+[33me8bd27f[m[33m ([m[1;31morigin/John.Z[m[33m, [m[1;32mJohn.Z[m[33m)[m HEAD@{28}: merge John.Z: Fast-forward
+[33m87fa300[m HEAD@{29}: checkout: moving from main to LevelDesign
+[33m6d31ae1[m HEAD@{30}: reset: moving to HEAD
+[33m6d31ae1[m HEAD@{31}: checkout: moving from LevelDesign to main
+[33m87fa300[m HEAD@{32}: checkout: moving from main to LevelDesign
+[33m6d31ae1[m HEAD@{33}: commit (merge): John into main merge
+[33m0ae5e1f[m HEAD@{34}: checkout: moving from ArtDrops to main
+[33mfaa4b8f[m[33m ([m[1;31morigin/ArtDrops[m[33m, [m[1;32mArtDrops[m[33m)[m HEAD@{35}: reset: moving to HEAD
+[33mfaa4b8f[m[33m ([m[1;31morigin/ArtDrops[m[33m, [m[1;32mArtDrops[m[33m)[m HEAD@{36}: checkout: moving from John.Z to ArtDrops
+[33me8bd27f[m[33m ([m[1;31morigin/John.Z[m[33m, [m[1;32mJohn.Z[m[33m)[m HEAD@{37}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+[33m3db8bcb[m HEAD@{38}: checkout: moving from main to John.Z
+[33m0ae5e1f[m HEAD@{39}: commit: initialize button to green
+[33ma2493de[m HEAD@{40}: commit: lightly altered pressure plate script
+[33ma090b4c[m HEAD@{41}: checkout: moving from John.Z to main
+[33m3db8bcb[m HEAD@{42}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+[33m54614cb[m HEAD@{43}: checkout: moving from main to John.Z
+[33ma090b4c[m HEAD@{44}: reset: moving to HEAD
+[33ma090b4c[m HEAD@{45}: commit (merge): level design into main
+[33m4f39ae2[m HEAD@{46}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+[33m59b0fce[m HEAD@{47}: checkout: moving from LevelDesign to main
+[33m87fa300[m HEAD@{48}: commit: fixed some particles
+[33mc946b72[m HEAD@{49}: commit: map with trap prefabs implemented
+[33m59b0fce[m HEAD@{50}: merge main: Fast-forward
+[33mde51824[m HEAD@{51}: checkout: moving from main to LevelDesign
+[33m59b0fce[m HEAD@{52}: commit (merge): level into main
+[33m6dde6ca[m HEAD@{53}: checkout: moving from LevelDesign to main
+[33mde51824[m HEAD@{54}: commit: Map prefab
+[33m83420bc[m HEAD@{55}: checkout: moving from main to LevelDesign
+[33m6dde6ca[m HEAD@{56}: commit (merge): John's branch into Main
+[33mfaa4b8f[m[33m ([m[1;31morigin/ArtDrops[m[33m, [m[1;32mArtDrops[m[33m)[m HEAD@{57}: checkout: moving from John.Z to main
+[33m54614cb[m HEAD@{58}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+[33mccc0916[m HEAD@{59}: checkout: moving from main to John.Z
+[33mfaa4b8f[m[33m ([m[1;31morigin/ArtDrops[m[33m, [m[1;32mArtDrops[m[33m)[m HEAD@{60}: merge ArtDrops: Fast-forward
+[33medaac41[m HEAD@{61}: checkout: moving from ArtDrops to main
+[33mfaa4b8f[m[33m ([m[1;31morigin/ArtDrops[m[33m, [m[1;32mArtDrops[m[33m)[m HEAD@{62}: commit: Title screen animation
+[33ma5be79f[m HEAD@{63}: commit: Player animations working
+[33m7f6a29a[m HEAD@{64}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+[33md86a202[m HEAD@{65}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Merge made by the 'ort' strategy.
+[33medaac41[m HEAD@{66}: merge main: Fast-forward
+[33m5186c8d[m HEAD@{67}: reset: moving to HEAD
+[33m5186c8d[m HEAD@{68}: checkout: moving from main to ArtDrops
+[33medaac41[m HEAD@{69}: reset: moving to HEAD
+[33medaac41[m HEAD@{70}: checkout: moving from John.Z to main
+[33mccc0916[m HEAD@{71}: checkout: moving from main to John.Z
+[33medaac41[m HEAD@{72}: commit (merge): Merging maps into main
+[33mccc0916[m HEAD@{73}: merge John.Z: Fast-forward
+[33m5186c8d[m HEAD@{74}: checkout: moving from John.Z to main
+[33mccc0916[m HEAD@{75}: pull --progress --no-edit --no-stat --recurse-submodules=no origin: Fast-forward
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{76}: checkout: moving from LevelDesign to John.Z
+[33m83420bc[m HEAD@{77}: commit: Additions:
+[33mbdfa3ac[m HEAD@{78}: commit: setup shit
+[33m5186c8d[m HEAD@{79}: checkout: moving from main to LevelDesign
+[33m5186c8d[m HEAD@{80}: merge ArtDrops: Fast-forward
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{81}: checkout: moving from ArtDrops to main
+[33m5186c8d[m HEAD@{82}: commit: Players have animators and sprites dynamically added
+[33m6128eb5[m HEAD@{83}: checkout: moving from KnoxUI to ArtDrops
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{84}: checkout: moving from ArtDrops to KnoxUI
+[33m6128eb5[m HEAD@{85}: commit: base functionality started
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{86}: checkout: moving from John.Z to ArtDrops
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{87}: checkout: moving from ArtDrops to John.Z
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{88}: reset: moving to HEAD
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{89}: checkout: moving from main to ArtDrops
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{90}: merge John.Z: Fast-forward
+[33m9301f14[m HEAD@{91}: checkout: moving from KnoxUI to main
+[33m45b9d27[m[33m ([m[1;31morigin/KnoxUI[m[33m, [m[1;32mKnoxUI[m[33m)[m HEAD@{92}: merge John.Z: Fast-forward
+[33mecd7d49[m HEAD@{93}: pull --progress --no-edit --no-stat --recurse-submodule
