@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEditor.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Vector3 player1StartPosition;
     public Vector3 player2StartPosition;
 
-    private UIManager uiManager;
+    public UIManager uiManager;
 
     private bool gameEnded = false;
 
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public PlayerSO player1SO;
     public PlayerSO player2SO;
+
+    Animation doorAnim;
 
     private void Awake()
     {
@@ -40,6 +43,10 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void Start()
+    {
+
+    }
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -71,6 +78,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Opens door at end of level to begin fight, is called from the gun pickup in level
+    public void OpenTrapChamberDoor()
+    {
+        doorAnim.Play();
+    }
 
     public void RegisterPlayer(PlayerController newPlayer)
     {
@@ -151,12 +163,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HandlePlayerDeath(string playerTag)
-    {
-        Debug.Log($"{playerTag} has died.");
-        EndGame("Player 1 Wins", 1);
-    }
-
     public void EndGame(string result, int resultID)
     {
         if (gameEnded) return;
@@ -203,7 +209,9 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "GameScene")
         {
-            InitializePlayerPositions();
+            doorAnim = GameObject.FindGameObjectWithTag("Door").GetComponent<Animation>();
+
+            InitializePlayerPositions(); // sets player spawn positions
 
             if (uiManager == null)
             {
