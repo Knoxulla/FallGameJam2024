@@ -282,7 +282,15 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Debug.Log("Player" + (playerIndex + 1) + " has died.");
+            GameManager.Instance.HandlePlayerDeath(playerIndex);
+        }
+
+            Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
     }
 
     #region Unused Controls from Action Map

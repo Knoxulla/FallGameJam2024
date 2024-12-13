@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, AudioClip> sfxDictionary;
 
     private List<AudioSource> sfxPool = new List<AudioSource>();
-    public int poolSize = 10;
+    public int poolSize = 1000;
 
     
 
