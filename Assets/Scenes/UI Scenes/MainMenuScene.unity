@@ -2004,6 +2004,7 @@ MonoBehaviour:
   uiManager: {fileID: 0}
   player1SO: {fileID: 11400000, guid: 71a39e73dcdaae44ca24183baaf5fb2d, type: 2}
   player2SO: {fileID: 11400000, guid: 10a0b36d74278fa438333616e1ba5fbd, type: 2}
+  playerInputs: []
 --- !u!4 &2017056342
 Transform:
   m_ObjectHideFlags: 0

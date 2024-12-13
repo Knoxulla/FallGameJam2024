@@ -271,8 +271,6 @@ public class PlayerController : MonoBehaviour
         }
 
         Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
-        Destroy(gameObject);
-
     }
 
     #region Unused Controls from Action Map

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEditor.SceneManagement;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     Animation doorAnim;
 
+    public List<PlayerInput> playerInputs = new List<PlayerInput>();
+
     private void Awake()
     {
         if (Instance == null)
@@ -45,7 +48,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        PlayerInput[] inputs = FindObjectsOfType<PlayerInput>();
+        playerInputs.AddRange(inputs);
     }
     private void OnDestroy()
     {
@@ -177,13 +181,13 @@ public class GameManager : MonoBehaviour
         if (playerIndex == 0)
         {
             //Debug.Log("Player 1 has died.");
-            player1 = null;
+            //player1 = null;
             EndGame("Player 2 Wins", 2);
         }
         else if (playerIndex == 1)
         {
             //Debug.Log("Player 2 has died.");
-            player2 = null;
+            //player2 = null;
             EndGame("Player 1 Wins", 1);
         }
         else
@@ -216,13 +220,10 @@ public class GameManager : MonoBehaviour
             Debug.LogError("UIManager is not assigned!");
         }
 
-        StartCoroutine(PauseGameAfterFrame());
-    }
-
-    IEnumerator PauseGameAfterFrame()
-    {
-        yield return new WaitForEndOfFrame();
-        Time.timeScale = 0f;
+        foreach (var playerInput in playerInputs)
+        {
+            playerInput.SwitchCurrentActionMap("UI");
+        }
     }
 
     public void RestartGame()
@@ -239,7 +240,6 @@ public class GameManager : MonoBehaviour
         if (scene.name == "GameScene")
         {
             doorAnim = GameObject.FindGameObjectWithTag("Door").GetComponent<Animation>();
-
             InitializePlayerPositions(); // sets player spawn positions
 
             if (uiManager == null)
@@ -269,11 +269,32 @@ public class GameManager : MonoBehaviour
                 SetVisualsByPlayerID(player2);
             }
         }
+        else if (scene.name == "CreditScene")
+        {
+            RemovePlayers();
+        }
         else
         {
             uiManager = null;
             //Debug.Log($"Scene {scene.name} loaded. UIManager is set to null.");
         }
+    }
+
+    public void RemovePlayers()
+    {
+        if (player1 != null)
+        {
+            Destroy(player1.gameObject);
+            player1 = null;
+        }
+
+        if (player2 != null)
+        {
+            Destroy(player2.gameObject);
+            player2 = null;
+        }
+
+        Debug.Log("All player objects have been removed.");
     }
 
     public void GivePlayersGun()

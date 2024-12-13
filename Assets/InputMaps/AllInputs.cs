@@ -834,6 +834,17 @@ public partial class @AllInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d0a43ab5-0e62-4a9d-acb0-75006b151c9b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad;DefaultPlayer;PlayerOne;PlayerTwo"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""38c99815-14ea-4617-8627-164d27641299"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
@@ -884,6 +895,116 @@ public partial class @AllInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""TrackedDeviceOrientation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""350e2ac9-9268-428c-9c91-f1ead0d7b36f"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button12"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05885337-7886-4bf5-840d-3bec287ccaed"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button10"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f0bd9a5-d33a-4fce-924c-3514ad30a6a9"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a3323bf-0db0-4f3a-b4eb-448fb9657863"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button11"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1aac6ea2-8fd9-4572-93b6-3120cfe65032"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cad58e9d-e898-4100-b94b-d1978fa76ff8"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15ae58d6-85e2-4d00-89be-460886a3d8d2"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d6f1e78-4116-4f85-91d2-668a80981e5d"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ada66db-f42d-4f4c-a22a-ce7d2c005b13"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a02b6810-9240-492d-96c3-275523bc8889"",
+                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayerOne"",
+                    ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
