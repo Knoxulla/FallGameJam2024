@@ -154,8 +154,10 @@ public class PlayerController : MonoBehaviour
                     facingDirection = -1;
 
                     transform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+
+                    isFlipped = true;
                 }
-                isFlipped = true;
+                
 
                 animator.SetBool(PLAYERX, isMoving);
             }

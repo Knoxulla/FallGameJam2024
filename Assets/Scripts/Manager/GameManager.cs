@@ -62,16 +62,25 @@ public class GameManager : MonoBehaviour
     private void SetVisualsByPlayerID(PlayerController player)
     {
         GameObject playerObj = player.gameObject;
-        SpriteRenderer playerRenderer = playerObj.AddComponent<SpriteRenderer>();
-        Animator playerAnimator = playerObj.AddComponent<Animator>();
+
+        SpriteRenderer playerRenderer = playerObj.GetComponent<SpriteRenderer>();
+        if (playerRenderer == null)
+        {
+            playerRenderer = playerObj.AddComponent<SpriteRenderer>();
+        }
+
+        Animator playerAnimator = playerObj.GetComponent<Animator>();
+        if (playerAnimator == null)
+        {
+            playerAnimator = playerObj.AddComponent<Animator>();
+        }
 
         if (player.playerIndex == 0)
-        { 
+        {
             playerRenderer.sprite = player1SO.playerSprite;
             playerAnimator.runtimeAnimatorController = player1SO.animatorController;
         }
-
-        if (player.playerIndex == 1)
+        else if (player.playerIndex == 1)
         {
             playerRenderer.sprite = player2SO.playerSprite;
             playerAnimator.runtimeAnimatorController = player2SO.animatorController;

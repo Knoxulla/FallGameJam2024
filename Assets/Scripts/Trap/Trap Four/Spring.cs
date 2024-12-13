@@ -5,9 +5,9 @@ public class Spring : MonoBehaviour
 {
     public Animator animator;
     public float cooldownTime = 0.5f;
-    private bool isReady = true;
+    public bool isReady = true;
     public float springForce = 10f;
-    private bool isActive = false;
+    public bool isActive = false;
 
     private void Awake()
     {

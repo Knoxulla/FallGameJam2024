@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Collections;   
 
 public class SpringTrapController : TrapBase
 {
     [Header("Scene Springs")]
     public Spring[] springs;
+
+    public float trapActiveDuration = 5f;
 
     protected override void Awake()
     {
@@ -17,6 +20,8 @@ public class SpringTrapController : TrapBase
 
         SetState(TrapState.Active);
         ActivateSprings();
+
+        StartCoroutine(AutoDeactivateTrapAfterDelay(trapActiveDuration));
     }
 
     private void ActivateSprings()
@@ -38,5 +43,18 @@ public class SpringTrapController : TrapBase
             spring.Deactivate();
         }
         
+    }
+
+    private IEnumerator AutoDeactivateTrapAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SetState(TrapState.Inactive);
+
+        foreach (Spring spring in springs)
+        {
+            spring.Deactivate();
+        }
+
+        Debug.Log("Spring Trap automatically deactivated after delay.");
     }
 }
