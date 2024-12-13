@@ -1,12 +1,20 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
+    [System.Serializable]
+    public class SceneBGM
+    {
+        public string sceneName;
+        public AudioClip bgmClip;
+    }
+
     [Header("Background Music")]
-    public AudioClip backgroundMusic;
+    public List<SceneBGM> sceneBGMList;
     public float bgmVolume = 0.5f;
     private AudioSource bgmSource;
 
@@ -16,7 +24,9 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, AudioClip> sfxDictionary;
 
     private List<AudioSource> sfxPool = new List<AudioSource>();
-    public int poolSize = 10; // Number of AudioSources in the pool
+    public int poolSize = 10;
+
+    private AudioClip currentBGMClip;
 
     private void Awake()
     {
@@ -26,6 +36,8 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             InitializeAudioSources();
             InitializeSFXPool();
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
@@ -36,11 +48,9 @@ public class AudioManager : MonoBehaviour
     private void InitializeAudioSources()
     {
         bgmSource = gameObject.AddComponent<AudioSource>();
-        bgmSource.clip = backgroundMusic;
         bgmSource.loop = true;
         bgmSource.volume = bgmVolume;
         bgmSource.playOnAwake = false;
-        bgmSource.Play();
 
         sfxDictionary = new Dictionary<string, AudioClip>();
         foreach (SFX sfx in soundEffects)
@@ -101,6 +111,43 @@ public class AudioManager : MonoBehaviour
         return null;
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        string currentSceneName = scene.name;
+        if (sceneBGMList.Count == 0)
+        {
+            Debug.LogError("Scene BGM List is empty, no BGM available.");
+            return;
+        }
+
+        AudioClip targetClip = null;
+        foreach (var sb in sceneBGMList)
+        {
+            if (sb.sceneName == currentSceneName)
+            {
+                targetClip = sb.bgmClip;
+                break;
+            }
+        }
+
+        if (targetClip == null)
+        {
+            Debug.LogError($"No BGM found for scene: {currentSceneName}");
+            return;
+        }
+
+        if (currentBGMClip != targetClip)
+        {
+            currentBGMClip = targetClip;
+            bgmSource.clip = currentBGMClip;
+            bgmSource.Play();
+        }
+        else
+        {
+            return;
+        }
+    }
+
     public void StopBGM()
     {
         if (bgmSource.isPlaying)
@@ -111,7 +158,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM()
     {
-        if (!bgmSource.isPlaying)
+        if (!bgmSource.isPlaying && currentBGMClip != null)
         {
             bgmSource.Play();
         }
