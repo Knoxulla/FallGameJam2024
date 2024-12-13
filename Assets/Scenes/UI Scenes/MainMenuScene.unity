@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b4ffd3d10c9dc4d816cd7d123f9046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: dd92b76e098bc0241964101376794869, type: 3}
   bgmVolume: 0.5
   soundEffects:
   - name: TITLE_MUSIC
