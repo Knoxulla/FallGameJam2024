@@ -69,7 +69,7 @@ public class TeslaCoilTrapController : TrapBase
 
         if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.PlaySFX("TeslaActivate");
+            AudioManager.Instance.PlaySFX("ELECTRICITY");
         }
 
         //Debug.Log("Tesla Coil activated.");
