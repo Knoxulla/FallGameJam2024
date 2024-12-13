@@ -908,6 +908,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7736301187110609060}
     m_Modifications:
+    - target: {fileID: 3157009961361337633, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157009961361337633, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157009961361337633, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515177526571504360, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_Size.x
+      value: 3.3697777
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515177526571504360, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64528656
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515177526571504360, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0075473785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515177526571504360, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515177526571504360, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5515177526571504360, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.78
+      objectReference: {fileID: 0}
     - target: {fileID: 6860046347706865739, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
       propertyPath: springForce
       value: 10
@@ -917,12 +953,24 @@ PrefabInstance:
       value: Spring
       objectReference: {fileID: 0}
     - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.65
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
       propertyPath: m_LocalPosition.z
@@ -955,6 +1003,10 @@ PrefabInstance:
     - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -992,6 +1044,10 @@ PrefabInstance:
     - target: {fileID: 8813271662031504382, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
       propertyPath: m_Name
       value: Spring
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813271662031504382, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9051791480661580044, guid: f08f862bd2f1566459d50ff18f06a132, type: 3}
       propertyPath: m_LocalPosition.x

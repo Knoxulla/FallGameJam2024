@@ -71,9 +71,13 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("GameManager not found in the scene.");
         }
 
-        if (gameObject.GetComponent<Animator>())
+        if (gameObject.GetComponent<Animator>() != null)
         {
             animator = gameObject.GetComponent<Animator>();
+        }
+        else 
+        {
+            animator = gameObject.AddComponent<Animator>();           
         }
     }
 
@@ -217,6 +221,8 @@ public class PlayerController : MonoBehaviour
             onCooldown = true;
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, 0f));
+            animator.SetTrigger(SHOOT);
+            
             if (isFlipped)
             {
                 bullet.GetComponent<SpriteRenderer>().flipX = true;
