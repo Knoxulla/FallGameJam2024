@@ -56,6 +56,11 @@ public class Spring : MonoBehaviour
                     animator.SetTrigger("Activate");
                 }
 
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySFX("SpringActivate");
+                }
+
                 StartCoroutine(CooldownRoutine());
             }
         }

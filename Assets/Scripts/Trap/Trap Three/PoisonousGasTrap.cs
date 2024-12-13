@@ -23,6 +23,11 @@ public class PoisonousGasTrap : TrapBase
 
         SetState(TrapState.Active);
 
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("GasRelease");
+        }
+
         StartCoroutine(EmitGas());
     }
 
