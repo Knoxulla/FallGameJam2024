@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public List<SceneBGM> sceneBGMList;
     public float bgmVolume = 0.5f;
     private AudioSource bgmSource;
+    private AudioClip currentBGMClip;
 
     [Header("Sound Effects")]
     public List<SFX> soundEffects = new List<SFX>();
@@ -26,7 +27,7 @@ public class AudioManager : MonoBehaviour
     private List<AudioSource> sfxPool = new List<AudioSource>();
     public int poolSize = 10;
 
-    private AudioClip currentBGMClip;
+    
 
     private void Awake()
     {
@@ -86,6 +87,7 @@ public class AudioManager : MonoBehaviour
             if (availableSource != null)
             {
                 availableSource.clip = clip;
+                availableSource.loop = false;
                 availableSource.Play();
             }
             else
@@ -98,6 +100,33 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning($"SFX '{sfxName}' not found in AudioManager.");
         }
     }
+
+    public AudioSource PlaySFXLoop(string sfxName)
+    {
+        if (sfxDictionary.ContainsKey(sfxName))
+        {
+            AudioClip clip = sfxDictionary[sfxName];
+            AudioSource availableSource = GetAvailableSFXSource();
+            if (availableSource != null)
+            {
+                availableSource.clip = clip;
+                availableSource.loop = true;
+                availableSource.Play();
+                return availableSource;
+            }
+            else
+            {
+                Debug.LogWarning("All SFX AudioSources are currently in use.");
+                return null;
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"SFX '{sfxName}' not found in AudioManager.");
+            return null;
+        }
+    }
+
 
     private AudioSource GetAvailableSFXSource()
     {
@@ -141,10 +170,6 @@ public class AudioManager : MonoBehaviour
             currentBGMClip = targetClip;
             bgmSource.clip = currentBGMClip;
             bgmSource.Play();
-        }
-        else
-        {
-            return;
         }
     }
 

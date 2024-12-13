@@ -5,10 +5,28 @@ public class BarrelMovement : MonoBehaviour
     private Vector2 moveDirection;
     private float speed;
 
+    public bool loopSound = false;
+    private AudioSource loopSFXSource;
+
     public void SetMovement(Vector2 direction, float moveSpeed)
     {
         moveDirection = direction.normalized;
         speed = moveSpeed;
+
+        if (loopSound)
+        {
+            if (AudioManager.Instance != null)
+            {
+                loopSFXSource = AudioManager.Instance.PlaySFXLoop("BarrelRoll");
+            }
+        }
+        else
+        {
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX("BarrelRoll");
+            }
+        }
     }
 
     private void Update()
@@ -26,18 +44,16 @@ public class BarrelMovement : MonoBehaviour
         PlayerController playerController = other.GetComponent<PlayerController>();
         if (playerController != null)
         {
-            if (playerController.playerIndex == 0)
-            {
-                GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
-                //Debug.Log("Player 1 hit by barrel");
-                Destroy(gameObject);
-            }
-            else if (playerController.playerIndex == 1)
-            {
-                GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
-                //Debug.Log("Player 2 hit by barrel");
-                Destroy(gameObject);
-            }
+            GameManager.Instance.HandlePlayerDeath(playerController.playerIndex);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (loopSFXSource != null)
+        {
+            loopSFXSource.Stop();
         }
     }
 }
