@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputHandler : MonoBehaviour, AllInputs.IPlayerActions
 {
@@ -27,11 +28,23 @@ public class PlayerInputHandler : MonoBehaviour, AllInputs.IPlayerActions
         playerInput.actions["Move"].canceled += OnMoveCanceled;
         playerInput.actions["Jump"].performed += OnJumpPerformed;
         playerInput.actions["Fire"].performed += OnFirePerformed;
+
+        playerInput.actions["Click"].performed += OnClickPerformed;
     }
 
     private void OnDisable()
     {
         UnsubscribeFromActions();
+    }
+    private void OnClickPerformed(InputAction.CallbackContext context)
+    {
+        if (playerInput.currentActionMap.name != "Player") return;
+        if (playerController == null) return;
+
+        if (playerController.isPlayerDead)
+        {
+            SceneManager.LoadScene("CreditScene");
+        }
     }
 
     public void UnsubscribeFromActions()
@@ -116,5 +129,10 @@ public class PlayerInputHandler : MonoBehaviour, AllInputs.IPlayerActions
     {
         if (playerController == null) return;
         playerController.OnFire();
+    }
+
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        OnClick(context);
     }
 }

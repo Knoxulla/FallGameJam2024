@@ -344,7 +344,7 @@ Canvas:
   m_GameObject: {fileID: 67711258}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1865577986}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -887,7 +887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &325286377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,12 +1866,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b18e27da1209f1408969a20c21c2f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endGamePanel: {fileID: 2076740052}
+  endGamePanel: {fileID: 0}
   resultText: {fileID: 1199192621}
-  fadeDuration: 2
   playerInputs: []
-  End1: {fileID: 2076740050}
-  End2: {fileID: 2076740049}
+  End1: {fileID: 0}
+  End2: {fileID: 0}
 --- !u!1 &862387783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,12 +1884,12 @@ GameObject:
   - component: {fileID: 862387786}
   - component: {fileID: 862387785}
   m_Layer: 5
-  m_Name: GameEnd Panel 01
-  m_TagString: Untagged
+  m_Name: GameEnd Panel
+  m_TagString: EndGamePanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &862387784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2046,6 +2045,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4e06bfa1-e254-41bb-b44f-3510a75e82b6
     m_ActionName: ArcadeControls/P1JoyStick
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 99c7a736-a71d-49b3-87db-bb0c635afb73
+    m_ActionName: Player/Click[/XInputControllerWindows/buttonSouth,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press,/Pen/tip,/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -4072,7 +4075,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endGamePanel: {fileID: 862387783}
   resultText: {fileID: 862573129}
-  fadeDuration: 2
   playerInputs: []
   End1: {fileID: 1323360655}
   End2: {fileID: 325286376}
@@ -4312,6 +4314,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1859326416417378934, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859326416417378934, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
+      propertyPath: endGamePanel
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3213791893956852752, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4365,25 +4375,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6815115640342233826, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
---- !u!1 &2076740049 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2239857227063470218, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
-  m_PrefabInstance: {fileID: 2076740048}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2076740050 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6847087621868325843, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
-  m_PrefabInstance: {fileID: 2076740048}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2076740052 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1688857791877479609, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
-  m_PrefabInstance: {fileID: 2076740048}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2104617265
 GameObject:
   m_ObjectHideFlags: 0

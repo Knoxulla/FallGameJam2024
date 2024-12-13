@@ -12,6 +12,7 @@ TagManager:
   - Player2Spawn
   - DestructionZone
   - Door
+  - EndGamePanel
   layers:
   - Default
   - TransparentFX
