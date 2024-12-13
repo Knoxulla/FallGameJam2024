@@ -12,7 +12,6 @@ public class UIManager : MonoBehaviour
     public GameObject endGamePanel;
     public TMP_Text resultText;
     public float fadeDuration = 2f;
-    public TMP_Text blinkingText;
 
     public List<PlayerInput> playerInputs = new List<PlayerInput>();
 
@@ -76,13 +75,6 @@ public class UIManager : MonoBehaviour
             Debug.LogWarning("Result text is not assigned in UIManager.");
         }
 
-        if (blinkingText != null)
-        {
-            blinkingText.text = "Press Any Key to Continue";
-            blinkingText.color = new Color(blinkingText.color.r, blinkingText.color.g, blinkingText.color.b, 1f);
-            StartBlinkingText();
-        }
-
         HandleGameEnd(resultID);
 
         foreach (var playerInput in playerInputs)
@@ -109,62 +101,7 @@ public class UIManager : MonoBehaviour
 
             playerInput.SwitchCurrentActionMap("UI");
         }
-
-
-
-        foreach (var playerInput in playerInputs)
-        {
-            PlayerInputHandler inputHandler = playerInput.GetComponent<PlayerInputHandler>();
-            if (inputHandler != null)
-            {
-                inputHandler.UnsubscribeFromActions();
-            }
-
-            playerInput.SwitchCurrentActionMap("UI");
-        }
     }
-
-    private void StartBlinkingText()
-    {
-        if (blinkingCoroutine != null)
-        {
-            StopCoroutine(blinkingCoroutine);
-        }
-
-        blinkingCoroutine = StartCoroutine(BlinkTextCoroutine());
-    }
-
-    private IEnumerator BlinkTextCoroutine()
-    {
-        for (float alpha = 0f; alpha <= 1f; alpha += Time.deltaTime / fadeDuration)
-        {
-            Debug.Log($"Increasing Alpha: {alpha}");
-            blinkingText.color = new Color(blinkingText.color.r, blinkingText.color.g, blinkingText.color.b, alpha);
-            yield return null;
-        }
-
-        for (float alpha = 1f; alpha >= 0f; alpha -= Time.deltaTime / fadeDuration)
-        {
-            Debug.Log($"Decreasing Alpha: {alpha}");
-            blinkingText.color = new Color(blinkingText.color.r, blinkingText.color.g, blinkingText.color.b, alpha);
-            yield return null;
-        }
-    }
-
-    private void StopBlinkingText()
-    {
-        if (blinkingCoroutine != null)
-        {
-            StopCoroutine(blinkingCoroutine);
-            blinkingCoroutine = null;
-        }
-
-        if (blinkingText != null)
-        {
-            blinkingText.color = new Color(blinkingText.color.r, blinkingText.color.g, blinkingText.color.b, 1f);
-        }
-    }
-
     public void HandleGameEnd(int resultID)
     {
         switch (resultID)
@@ -213,7 +150,5 @@ public class UIManager : MonoBehaviour
                 clickAction.performed -= OnUIClick;
             }
         }
-
-        StopBlinkingText();
     }
 }
