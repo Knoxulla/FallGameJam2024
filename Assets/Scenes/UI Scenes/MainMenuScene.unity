@@ -229,7 +229,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 0}
   bgmVolume: 0.5
-  soundEffects: []
+  soundEffects:
+  - name: TITLE_MUSIC
+    clip: {fileID: 8300000, guid: 76aa681c7bd95124db39348c13c80483, type: 3}
+  - name: LEVEL_MUSIC
+    clip: {fileID: 8300000, guid: dd92b76e098bc0241964101376794869, type: 3}
+  - name: BARRELROLL
+    clip: {fileID: 8300000, guid: 592518e50d8ca08479345f0e8fdba342, type: 3}
+  - name: ELECTRICITY
+    clip: {fileID: 8300000, guid: 136d7cc4e6b6593409583b9790059c41, type: 3}
+  - name: GAMEOVER_PLAYER2_WIN
+    clip: {fileID: 8300000, guid: 9e2369073d0177d43b6b7c999f0d2aed, type: 3}
+  - name: GAMEOVER_PLAYER1_WIN
+    clip: {fileID: 8300000, guid: 11e3aa9ff9fc3f641b482230f09ce687, type: 3}
+  - name: APE_JUMP
+    clip: {fileID: 8300000, guid: 2e51c58662d9e1a4f8d88e60422da637, type: 3}
+  - name: SCIENTIST_JUMP
+    clip: {fileID: 8300000, guid: 67f45f540ad207c46a4467896b2dcbc9, type: 3}
+  - name: LADDER_CLIMB
+    clip: {fileID: 8300000, guid: d138af93a8420fc46838ea55fd0c5652, type: 3}
+  - name: SCIENTIST_JUMP
+    clip: {fileID: 8300000, guid: 67f45f540ad207c46a4467896b2dcbc9, type: 3}
+  - name: POISON_ON
+    clip: {fileID: 8300000, guid: 153b843a930c1f7468c211250f8c8fda, type: 3}
+  - name: SPRING_TRAP
+    clip: {fileID: 8300000, guid: aadc849f10bb20346bbd858b2e365397, type: 3}
+  - name: SHOOT
+    clip: {fileID: 8300000, guid: e8e45f585d593364fbb41d2d4d14db68, type: 3}
   sfxVolume: 1
   poolSize: 10
 --- !u!4 &108767466
@@ -1163,7 +1189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A Game
+  m_text: Mad Esc-ape
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a39d6b607d0e5c46bf82ffd6c05be61, type: 2}
   m_sharedMaterial: {fileID: 3761085612746028413, guid: 8a39d6b607d0e5c46bf82ffd6c05be61, type: 2}
@@ -1201,7 +1227,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -50
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0

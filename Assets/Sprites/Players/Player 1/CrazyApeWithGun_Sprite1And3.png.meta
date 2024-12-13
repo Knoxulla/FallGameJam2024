@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 118d8777aea2dd64298a0b3509a169d5
+guid: 950d435a1b6ae284ebfcf4b6696d80f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CrazyApeWithGun_0
+      name: CrazyApeWithGun_Sprite1And3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -105,41 +105,20 @@ TextureImporter:
         width: 1237
         height: 1017
       alignment: 9
-      pivot: {x: 0.2630867, y: 0.51477766}
+      pivot: {x: 0.18715295, y: 0.48522246}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67a89c9835f81dd4a8a3c862d18cc71d
-      internalID: 1438842746
+      spriteID: 31295a3b317c65e45a0474dd462e17b4
+      internalID: -2038852839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrazyApeWithGun_1
-      rect:
-        serializedVersion: 2
-        x: 1138
-        y: 457
-        width: 1360
-        height: 1017
-      alignment: 9
-      pivot: {x: 0.27070016, y: 0.49261126}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eeea5862b3409ed4eb9a8985b8a6ac19
-      internalID: 1742050048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CrazyApeWithGun_2
+      name: CrazyApeWithGun_Sprite1And3_2
       rect:
         serializedVersion: 2
         x: 2571
@@ -147,56 +126,14 @@ TextureImporter:
         width: 1197
         height: 1020
       alignment: 9
-      pivot: {x: 0.19553176, y: 0.5000001}
+      pivot: {x: 0.19553176, y: 0.49631658}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4635386ddfb99b4bbb3bf164c998256
-      internalID: 1500820765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CrazyApeWithGun_3
-      rect:
-        serializedVersion: 2
-        x: 3696
-        y: 463
-        width: 1289
-        height: 1021
-      alignment: 9
-      pivot: {x: 0.25515518, y: 0.4889603}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d40757dbf58e2dd40bb13bb200c5c81f
-      internalID: -969923914
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CrazyApeWithGun_4
-      rect:
-        serializedVersion: 2
-        x: 5029
-        y: 442
-        width: 1362
-        height: 1029
-      alignment: 9
-      pivot: {x: 0.14965892, y: 0.50000024}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ad0df41cf7b5b7449bcb13c61aef536
-      internalID: 766953593
+      spriteID: df33485504e9ec442a0393a2d8c7bce8
+      internalID: -1539917258
       vertices: []
       indices: 
       edges: []
@@ -212,11 +149,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CrazyApeWithGun_0: 1438842746
-      CrazyApeWithGun_1: 1742050048
-      CrazyApeWithGun_2: 1500820765
-      CrazyApeWithGun_3: -969923914
-      CrazyApeWithGun_4: 766953593
+      CrazyApeWithGun_Sprite1And3_0: -2038852839
+      CrazyApeWithGun_Sprite1And3_1: 465777497
+      CrazyApeWithGun_Sprite1And3_2: -1539917258
+      CrazyApeWithGun_Sprite1And3_3: 1695202379
+      CrazyApeWithGun_Sprite1And3_4: -890522462
+      CrazyApeWithGun_Sprite1And3_5: 1030964638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

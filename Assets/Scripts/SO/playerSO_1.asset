@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea66eb02eb1448347b5bd2a13bfd6974, type: 3}
   m_Name: playerSO_1
   m_EditorClassIdentifier: 
-  playerSprite: {fileID: 530343434, guid: e33f6a6676ef3894bade4148ddd70edf, type: 3}
+  playerSprite: {fileID: -239616947, guid: 9e52c139864bf7b439a9ded739174fff, type: 3}
   animatorController: {fileID: 9100000, guid: cfa50dc74e633814b99632232e3956ce, type: 2}

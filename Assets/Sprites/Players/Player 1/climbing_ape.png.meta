@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +95,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: climbing_ape_0
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 3354
+        width: 1832
+        height: 2382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97969b79d54fe54e854d0ca45a0e34c
+      internalID: 1723886169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbing_ape_1
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 3382
+        width: 1987
+        height: 2055
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afedba82056bf674da71c9e286741bb8
+      internalID: -1705534461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbing_ape_2
+      rect:
+        serializedVersion: 2
+        x: 3942
+        y: 3326
+        width: 1854
+        height: 2379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a292357bfe2a824ba9c2e4e06ddd837
+      internalID: -486571109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbing_ape_3
+      rect:
+        serializedVersion: 2
+        x: 5894
+        y: 3276
+        width: 2008
+        height: 2062
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d834eacb9f2b48847bfbe0988bf479ab
+      internalID: 559755587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbing_ape_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 584
+        width: 1832
+        height: 2656
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcab2941de9aa3046b8c63eaf39d41df
+      internalID: 636906661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbing_ape_5
+      rect:
+        serializedVersion: 2
+        x: 2077
+        y: 604
+        width: 1978
+        height: 2273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b13735596a9f4f4088e70671d79bd3e
+      internalID: -1033818051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbing_ape_6
+      rect:
+        serializedVersion: 2
+        x: 4037
+        y: 557
+        width: 1832
+        height: 2379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894760aa81bdb4f43a7ad3dd87931b82
+      internalID: -1395403937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: climbing_ape_7
+      rect:
+        serializedVersion: 2
+        x: 5994
+        y: 506
+        width: 1957
+        height: 2062
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57a025741fc50547bc17c427373f43d
+      internalID: 1757809300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +274,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      climbing_ape_0: 1723886169
+      climbing_ape_1: -1705534461
+      climbing_ape_2: -486571109
+      climbing_ape_3: 559755587
+      climbing_ape_4: 636906661
+      climbing_ape_5: -1033818051
+      climbing_ape_6: -1395403937
+      climbing_ape_7: 1757809300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

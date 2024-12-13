@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
     public void EnableGun()
     { 
         hasGun = true;
-        animator.SetBool(HASGUN, hasGun);
+        animator.SetBool(HASGUN, true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

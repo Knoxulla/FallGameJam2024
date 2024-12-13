@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 118d8777aea2dd64298a0b3509a169d5
+guid: 9c36321322896684698a15c8501d6880
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,106 +97,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CrazyApeWithGun_0
+      name: scientistclimb_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 460
-        width: 1237
-        height: 1017
-      alignment: 9
-      pivot: {x: 0.2630867, y: 0.51477766}
+        x: 406
+        y: 3369
+        width: 1123
+        height: 2149
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67a89c9835f81dd4a8a3c862d18cc71d
-      internalID: 1438842746
+      spriteID: 75195aecea0153e48bf6ddcaea2a1716
+      internalID: -1248017077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrazyApeWithGun_1
+      name: scientistclimb_1
       rect:
         serializedVersion: 2
-        x: 1138
-        y: 457
-        width: 1360
-        height: 1017
+        x: 1680
+        y: 3264
+        width: 1315
+        height: 2127
       alignment: 9
-      pivot: {x: 0.27070016, y: 0.49261126}
+      pivot: {x: 0.4946055, y: 0.5300154}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeea5862b3409ed4eb9a8985b8a6ac19
-      internalID: 1742050048
+      spriteID: dc0cc891f92b1bf4bb53d7c840455380
+      internalID: -1536732411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrazyApeWithGun_2
+      name: scientistclimb_2
       rect:
         serializedVersion: 2
-        x: 2571
-        y: 454
-        width: 1197
-        height: 1020
+        x: 3134
+        y: 3369
+        width: 1123
+        height: 2149
       alignment: 9
-      pivot: {x: 0.19553176, y: 0.5000001}
+      pivot: {x: 0.5189497, y: 0.47689354}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4635386ddfb99b4bbb3bf164c998256
-      internalID: 1500820765
+      spriteID: 39864e08edbfe994eb0722103ed04298
+      internalID: 282359884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrazyApeWithGun_3
+      name: scientistclimb_3
       rect:
         serializedVersion: 2
-        x: 3696
-        y: 463
-        width: 1289
-        height: 1021
-      alignment: 9
-      pivot: {x: 0.25515518, y: 0.4889603}
+        x: 4342
+        y: 3303
+        width: 1315
+        height: 2127
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d40757dbf58e2dd40bb13bb200c5c81f
-      internalID: -969923914
+      spriteID: ec17805dbe50d1142bb7aa1d62b837cc
+      internalID: 1556073193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CrazyApeWithGun_4
+      name: scientistclimb_4
       rect:
         serializedVersion: 2
-        x: 5029
-        y: 442
-        width: 1362
-        height: 1029
-      alignment: 9
-      pivot: {x: 0.14965892, y: 0.50000024}
+        x: 475
+        y: 726
+        width: 1123
+        height: 2151
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ad0df41cf7b5b7449bcb13c61aef536
-      internalID: 766953593
+      spriteID: 4d9cad202807b754e92099351b58d581
+      internalID: 665667169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scientistclimb_5
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 666
+        width: 1316
+        height: 2408
+      alignment: 9
+      pivot: {x: 0.5053902, y: 0.4823248}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a369936728ebda24bb5c2ed46884226e
+      internalID: 443663497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scientistclimb_6
+      rect:
+        serializedVersion: 2
+        x: 3204
+        y: 726
+        width: 1122
+        height: 2495
+      alignment: 9
+      pivot: {x: 0.5189666, y: 0.44029376}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9420e93171f564f4db185a6549db6798
+      internalID: -1507388849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scientistclimb_7
+      rect:
+        serializedVersion: 2
+        x: 4404
+        y: 687
+        width: 1316
+        height: 2387
+      alignment: 9
+      pivot: {x: 0.5107804, y: 0.45542312}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 829f6c62c43336348a130afc3dcb4934
+      internalID: 1305690623
       vertices: []
       indices: 
       edges: []
@@ -212,11 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CrazyApeWithGun_0: 1438842746
-      CrazyApeWithGun_1: 1742050048
-      CrazyApeWithGun_2: 1500820765
-      CrazyApeWithGun_3: -969923914
-      CrazyApeWithGun_4: 766953593
+      scientistclimb_0: -1248017077
+      scientistclimb_1: -1536732411
+      scientistclimb_2: 282359884
+      scientistclimb_3: 1556073193
+      scientistclimb_4: 665667169
+      scientistclimb_5: 443663497
+      scientistclimb_6: -1507388849
+      scientistclimb_7: 1305690623
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
