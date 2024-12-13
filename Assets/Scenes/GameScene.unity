@@ -2799,13 +2799,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b18e27da1209f1408969a20c21c2f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endGamePanel: {fileID: 0}
-  resultText: {fileID: 0}
+  endGamePanel: {fileID: 2076740054}
+  resultText: {fileID: 2076740053}
   fadeDuration: 2
   blinkingText: {fileID: 0}
   playerInputs: []
-  End1: {fileID: 0}
-  End2: {fileID: 0}
+  End1: {fileID: 2076740050}
+  End2: {fileID: 2076740049}
 --- !u!4 &1810814806
 Transform:
   m_ObjectHideFlags: 0
@@ -3115,6 +3115,22 @@ MonoBehaviour:
 --- !u!1 &2076740052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1688857791877479609, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
+  m_PrefabInstance: {fileID: 2076740048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2076740053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4583218277761100410, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
+  m_PrefabInstance: {fileID: 2076740048}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076740052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2076740054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6815115640342233826, guid: 3bc5aad097712bf46ada489b8a922d62, type: 3}
   m_PrefabInstance: {fileID: 2076740048}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2104617265
