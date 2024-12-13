@@ -17,14 +17,14 @@ public class BarrelMovement : MonoBehaviour
         {
             if (AudioManager.Instance != null)
             {
-                loopSFXSource = AudioManager.Instance.PlaySFXLoop("BarrelRoll");
+                loopSFXSource = AudioManager.Instance.PlaySFXLoop("BARRELROLL");
             }
         }
         else
         {
             if (AudioManager.Instance != null)
             {
-                AudioManager.Instance.PlaySFX("BarrelRoll");
+                AudioManager.Instance.PlaySFX("BARRELROLL");
             }
         }
     }

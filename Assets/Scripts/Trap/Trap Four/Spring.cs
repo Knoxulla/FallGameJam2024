@@ -58,7 +58,7 @@ public class Spring : MonoBehaviour
 
                 if (AudioManager.Instance != null)
                 {
-                    AudioManager.Instance.PlaySFX("SpringActivate");
+                    AudioManager.Instance.PlaySFX("SPRING_TRAP");
                 }
 
                 StartCoroutine(CooldownRoutine());
