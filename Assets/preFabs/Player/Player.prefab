@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 10
   m_Sprite: {fileID: -5030138203935099171, guid: e6bed597fe8e7204ca0491056790a780, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -320,6 +320,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4e06bfa1-e254-41bb-b44f-3510a75e82b6
     m_ActionName: ArcadeControls/P1JoyStick
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 99c7a736-a71d-49b3-87db-bb0c635afb73
+    m_ActionName: Player/Click[/XInputControllerWindows/buttonSouth,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press,/Pen/tip,/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: DefaultPlayer
   m_DefaultActionMap: Player
@@ -354,6 +358,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8857569359933634673, guid: 15af935779e20304da89d0f4284465a6, type: 3}
   firePoint: {fileID: 1467372557635855977}
   bulletSpeed: 10
+  isPlayerDead: 0
 --- !u!114 &4194933639366768656
 MonoBehaviour:
   m_ObjectHideFlags: 0

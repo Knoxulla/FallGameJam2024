@@ -228,9 +228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneBGMList:
-  - sceneName: TITLE_MUSIC
+  - sceneName: MainMenuScene
     bgmClip: {fileID: 8300000, guid: 76aa681c7bd95124db39348c13c80483, type: 3}
-  - sceneName: LEVEL_MUSIC
+  - sceneName: GameScene
     bgmClip: {fileID: 8300000, guid: dd92b76e098bc0241964101376794869, type: 3}
   bgmVolume: 0.5
   soundEffects:

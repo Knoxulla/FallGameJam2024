@@ -213,11 +213,13 @@ public class GameManager : MonoBehaviour
 
         gameEnded = true;
 
-        //Debug.Log("Game Over: " + result);
+        player1.isPlayerDead = true;
+        player2.isPlayerDead = true;
 
         if (uiManager != null)
         {
             uiManager.ShowEndGameScreen(result, resultID);
+
             //Debug.Log("End game screen shown.");
         }
         else

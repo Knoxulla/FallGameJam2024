@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private int facingDirection = 1;
     private Vector2 moveInput;
 
+    public bool isPlayerDead = false;
+
 
     [Header("Visuals")]
     bool isFlipped = false;
@@ -90,6 +92,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleClimbing()
     {
+        if (isPlayerDead == true) return;
+
         if (isClimbing)
         {
             rb.gravityScale = 0f;
@@ -112,6 +116,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump()
     {
+        if (isPlayerDead == true) return;
+
         if (!isClimbing && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -132,6 +138,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(Vector2 moveInput)
     {
+        if (isPlayerDead == true) return;
+
         this.moveInput = moveInput;
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
@@ -282,7 +290,15 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Debug.Log("Player" + (playerIndex + 1) + " has died.");
+            GameManager.Instance.HandlePlayerDeath(playerIndex);
+        }
+
+            Debug.Log("Player" + (playerIndex + 1) + " is hit by " + attackerTag);
     }
 
     #region Unused Controls from Action Map
