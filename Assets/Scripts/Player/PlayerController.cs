@@ -116,6 +116,17 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetTrigger(JUMP);
+
+
+            //Audio example
+            if (playerIndex == 0)
+            {
+                AudioManager.Instance.PlaySFX("APE_JUMP");
+            }
+            else if (playerIndex == 1)
+            {
+                AudioManager.Instance.PlaySFX("SCIENTIST_JUMP");
+            }
         }
     }
 
@@ -170,6 +181,7 @@ public class PlayerController : MonoBehaviour
         isClimbing = true;
         rb.gravityScale = 0f;
         animator.SetBool(ISCLIMBING, isClimbing);
+        AudioManager.Instance.PlaySFX("LADDER_CLIMB");
 
     }
 
