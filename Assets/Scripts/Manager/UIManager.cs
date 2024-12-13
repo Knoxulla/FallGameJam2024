@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
 
     private Coroutine blinkingCoroutine;
 
+    public GameObject End1;
+    public GameObject End2;
+
     private void Awake()
     {
         if (GameManager.Instance != null)
@@ -29,6 +32,9 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("GameManager instance is null! Cannot assign UIManager.");
         }
+
+        End1.SetActive(false);
+        End2.SetActive(false);
 
         DontDestroyOnLoad(gameObject);
     }
@@ -167,9 +173,11 @@ public class UIManager : MonoBehaviour
                 Debug.Log("HandleGameEnd: Tie, both players dead.");
                 break;
             case 1: // Player 1 wins
+                End1.SetActive(true);
                 Debug.Log("HandleGameEnd: Player 1 wins.");
                 break;
             case 2: // Player 2 wins
+                End2.SetActive(true);
                 Debug.Log("HandleGameEnd: Player 2 wins.");
                 break;
             case 3: // Tie, no bullets

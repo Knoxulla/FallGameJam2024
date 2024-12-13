@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public PlayerSO player1SO;
     public PlayerSO player2SO;
 
+    
+
     Animation doorAnim;
 
     public List<PlayerInput> playerInputs = new List<PlayerInput>();
@@ -162,16 +164,19 @@ public class GameManager : MonoBehaviour
         else if (!player1Alive)
         {
             //Debug.Log("Player 2 wins!");
+            AudioManager.Instance.PlaySFX("GAMEOVER_PLAYER2_WIN");
             EndGame("Player 2 Wins", 2);
         }
         else if (!player2Alive)
         {
             //Debug.Log("Player 1 wins!");
+            AudioManager.Instance.PlaySFX("GAMEOVER_PLAYER1_WIN");
             EndGame("Player 1 Wins", 1);
         }
         else if (!player1HasAmmo && !player2HasAmmo)
         {
             //Debug.Log("Game ends in a tie (no bullets)!");
+            AudioManager.Instance.PlaySFX("SHOOT");
             EndGame("Tie (No Bullets)", 3);
         }
     }
