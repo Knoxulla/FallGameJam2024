@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
                 if (moveInput.x > 0 || moveInput.x < 0)
                 {
                     isMoving = true;
+                    AudioManager.Instance.PlaySFX("LADDER_CLIMB");
                 }
 
                 if (moveInput.x > 0)
@@ -168,8 +169,8 @@ public class PlayerController : MonoBehaviour
 
                     isFlipped = true;
                 }
-                
 
+               
                 animator.SetBool(PLAYERX, isMoving);
             }
         }
@@ -236,7 +237,9 @@ public class PlayerController : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0f, 0f, 0f));
             animator.SetTrigger(SHOOT);
-            
+
+            AudioManager.Instance.PlaySFX("SHOOT");
+
             if (isFlipped)
             {
                 bullet.GetComponent<SpriteRenderer>().flipX = true;
